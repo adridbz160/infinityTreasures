@@ -1,26 +1,23 @@
-import { serialize } from 'cookie';
+import { serialize } from "cookie";
 
-export async function handler() {
+export const GET = async () => {
   const headers = new Headers();
 
-  // Eliminar la cookie 'session' para cerrar la sesión
   headers.append(
-    'Set-Cookie',
-    serialize('session', '', {
-      path: '/',
+    "Set-Cookie",
+    serialize("session", "", {
       httpOnly: true,
-      maxAge: -1, // La cookie se elimina
+      path: "/",
+      maxAge: -1,
+      sameSite: "strict",
     })
   );
 
-  // Crear una respuesta que redirige al usuario a la página de acceso
-  const response = new Response(null, {
-    status: 302, // Código de estado para redirección
+  return new Response(null, {
+    status: 302,
     headers: {
-      Location: '/acceso', // Redirigir al usuario a la página de acceso
-      ...Object.fromEntries(headers), // Añadir las cabeceras (como la cookie eliminada)
+      Location: "/acceso",
+      ...Object.fromEntries(headers),
     },
   });
-
-  return response;
-}
+};

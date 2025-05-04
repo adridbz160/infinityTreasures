@@ -1,28 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import "../styles/perfil.css";
+import Layout from "../layouts/Layout.astro";
 import { parse } from "cookie";
 
-// Verificamos si el usuario está logueado.
 const cookies = parse(Astro.request.headers.get("cookie") || "");
 const session = cookies.session;
 
 if (!session) {
-  // Si no está logueado, lo redirigimos a /acceso
-  Astro.redirect("/acceso");
+  throw Astro.redirect("/acceso");
 }
 ---
 
 <Layout>
   <main>
-    <h1>Bienvenido a tu Perfil</h1>
-    <section>
-      <h2>Información de Usuario</h2>
-      <!-- Aquí puedes añadir más detalles sobre el usuario -->
-      <p>Tu información se muestra aquí...</p>
-
-      <a href="/api/logout">Cerrar sesión</a>
-      <!-- Enlace para cerrar sesión -->
-    </section>
+    <h1>Bienvenido a tu perfil</h1>
+    <a href="/api/logout">Cerrar sesión</a>
   </main>
 </Layout>

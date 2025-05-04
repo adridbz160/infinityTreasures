@@ -1,1 +1,39 @@
-<a href="/acceso" id="usuarioBoton">Acceder</a>
+---
+import { parse } from "cookie";
+import { Pool } from "pg";
+
+const cookies = parse(Astro.request.headers.get("cookie") || "");
+const session = cookies.session;
+let usuario = null;
+
+if (session) {
+  const pool = new Pool({
+    connectionString: import.meta.env.DATABASE_URL,
+  });
+
+  const res = await pool.query(
+    "SELECT nombre_usuario, foto_perfil FROM usuarios WHERE id = $1",
+    [session]
+  );
+  usuario = res.rows[0];
+}
+---
+
+{
+  usuario ? (
+    <a href="/perfil" id="usuarioBoton">
+      <img
+        src={usuario.foto_perfil}
+        alt="Foto de perfil"
+        width="32"
+        height="32"
+        style="border-radius: 50%; margin-right: 0.5rem;"
+      />
+      {usuario.nombre_usuario}
+    </a>
+  ) : (
+    <a href="/acceso" id="usuarioBoton">
+      Acceder
+    </a>
+  )
+}

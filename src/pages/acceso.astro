@@ -1,26 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import "../styles/acceso.css";
 import { parse } from "cookie";
-import type { APIRoute } from "astro";
 
-// Este bloque es la lógica para redirigir al usuario si ya está logueado
-export const GET: APIRoute = async ({ request, redirect }) => {
-  const cookies = parse(request.headers.get("cookie") || "");
-  const session = cookies.session;
+// Verificamos si el usuario está logueado.
+const cookies = parse(Astro.request.headers.get("cookie") || "");
+const session = cookies.session;
 
-  if (session) {
-    return redirect("/perfil"); // Redirige al perfil si ya está logueado
-  }
-
-  // Si no está logueado, muestra la página de acceso
-  return new Response(null, {
-    status: 200,
-    headers: {
-      "X-Bypass-Access": "true", // Esto es solo para debugging
-    },
-  });
-};
+if (session) {
+  // Si está logueado, lo redirigimos a /perfil
+  Astro.redirect("/perfil");
+}
 ---
 
 <Layout>

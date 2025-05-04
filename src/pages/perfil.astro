@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { parse } from "cookie";
+import type { APIRoute } from "astro";
+
+// Lógica para comprobar si el usuario está logueado
+export const GET: APIRoute = async ({ request, redirect }) => {
+  const cookies = parse(request.headers.get("cookie") || "");
+  const session = cookies.session; // Comprobamos si existe la cookie de sesión
+
+  if (!session) {
+    // Si no está logueado, redirigimos al acceso
+    return redirect("/acceso");
+  }
+
+  // Si está logueado, mostramos la página de perfil
+  return new Response(null, {
+    status: 200,
+    headers: {
+      "X-Bypass-Access": "true", // Solo para depuración
+    },
+  });
+};
+---
+
+<Layout>
+  <main>
+    <h1>Bienvenido a tu Perfil</h1>
+    <section>
+      <h2>Información de Usuario</h2>
+      <!-- Aquí puedes añadir más detalles sobre el usuario -->
+      <p>Tu información se muestra aquí...</p>
+
+      <a href="/api/logout">Cerrar sesión</a>
+      <!-- Enlace para cerrar sesión -->
+    </section>
+  </main>
+</Layout>

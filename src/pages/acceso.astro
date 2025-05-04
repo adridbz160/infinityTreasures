@@ -16,19 +16,50 @@ if (session) {
     <h1>Acceso</h1>
     <section>
       <h2>Registro</h2>
-      <form action="/api/register" method="POST">
+      <form
+        id="registroForm"
+        action="/api/register"
+        method="POST"
+        onsubmit="return validateForm()"
+      >
         <input name="nombre_usuario" placeholder="Nombre de usuario" required />
         <input name="nombre" placeholder="Nombre" required />
         <input name="apellido" placeholder="Apellido" required />
-        <input name="email" type="email" placeholder="Email" required />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          id="email"
+        />
+        <input
+          name="email_confirm"
+          type="email"
+          placeholder="Confirmar Email"
+          required
+          id="email_confirm"
+        />
         <input
           name="contraseña"
           type="password"
           placeholder="Contraseña"
           required
+          id="contraseña"
+        />
+        <input
+          name="contraseña_confirm"
+          type="password"
+          placeholder="Confirmar Contraseña"
+          required
+          id="contraseña_confirm"
         />
         <button type="submit">Registrarse</button>
       </form>
+
+      <div id="errorMessages" style="color: red; display: none;">
+        <p id="emailError"></p>
+        <p id="passwordError"></p>
+      </div>
 
       <h2>Login</h2>
       <form action="/api/login" method="POST">
@@ -43,4 +74,5 @@ if (session) {
       </form>
     </section>
   </main>
+  <script src="../js/validacionRegister.js"></script>
 </Layout>

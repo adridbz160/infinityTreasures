@@ -1,6 +1,6 @@
 import { serialize } from "cookie";
 
-export const GET = async () => {
+export const handler = async () => {
   const headers = new Headers();
 
   headers.append(
@@ -13,11 +13,11 @@ export const GET = async () => {
     })
   );
 
-  return new Response(null, {
-    status: 302,
+  return {
+    statusCode: 302,
     headers: {
+      "Set-Cookie": headers.get("Set-Cookie")!,
       Location: "/acceso",
-      ...Object.fromEntries(headers),
     },
-  });
+  };
 };

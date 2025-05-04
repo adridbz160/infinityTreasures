@@ -12,14 +12,12 @@ import "../styles/acceso.css";
         <h2>Registro</h2>
         <form action="/api/register" method="POST">
           <input
-            type="text"
             name="nombre_usuario"
             placeholder="Nombre de usuario"
             required
-            autocomplete="fa"
           />
-          <input type="text" name="nombre" placeholder="Nombre" required />
-          <input type="text" name="apellido" placeholder="Apellido" required />
+          <input name="nombre" placeholder="Nombre" required />
+          <input name="apellido" placeholder="Apellido" required />
           <input name="email" type="email" placeholder="Email" required />
           <input
             name="contraseña"

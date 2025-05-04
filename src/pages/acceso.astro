@@ -1,7 +1,7 @@
 ---
-import "../styles/acceso.css";
 import Layout from "../layouts/Layout.astro";
 import { parse } from "cookie";
+import "../styles/acceso.css";
 
 const cookies = parse(Astro.request.headers.get("cookie") || "");
 const session = cookies.session;

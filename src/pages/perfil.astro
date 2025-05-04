@@ -1,7 +1,7 @@
 ---
-import "../styles/perfil.css";
 import Layout from "../layouts/Layout.astro";
 import { parse } from "cookie";
+import "../styles/perfil.css";
 
 const cookies = parse(Astro.request.headers.get("cookie") || "");
 const session = cookies.session;
@@ -13,7 +13,9 @@ if (!session) {
 
 <Layout>
   <main>
-    <h1>Bienvenido a tu perfil</h1>
-    <a href="/api/logout">Cerrar sesión</a>
+    <section>
+      <h1>Bienvenido a tu perfil</h1>
+      <a href="/api/logout">Cerrar sesión</a>
+    </section>
   </main>
 </Layout>

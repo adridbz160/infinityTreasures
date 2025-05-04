@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { parse } from "cookie";
+
+const cookies = parse(Astro.request.headers.get("cookie") || "");
+const session = cookies.session;
+
+if (!session) {
+  throw Astro.redirect("/acceso");
+}
+---
+
+<Layout>
+  <main>
+    <h1>Bienvenido a tu perfil</h1>
+    <a href="/api/logout">Cerrar sesión</a>
+  </main>
+</Layout>

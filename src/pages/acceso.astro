@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    --- ---
+    <html>
+      <body>
+        <h1>Acceso</h1>
+
+        <h2>Registro</h2>
+        <form action="/api/register" method="POST">
+          <input
+            name="nombre_usuario"
+            placeholder="Nombre de usuario"
+            required
+          />
+          <input name="nombre" placeholder="Nombre" required />
+          <input name="apellido" placeholder="Apellido" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input
+            name="contraseña"
+            type="password"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit">Registrarse</button>
+        </form>
+
+        <h2>Login</h2>
+        <form action="/api/login" method="POST">
+          <input name="email" type="email" placeholder="Email" required />
+          <input
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit">Iniciar sesión</button>
+        </form>
+      </body>
+    </html>
+  </main>
+</Layout>

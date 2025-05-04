@@ -1,0 +1,159 @@
+header#responsive{
+    background-color: var(--cabecera);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 97;
+    position: fixed;
+    box-shadow: 0 2px 2px #4e4e4e;
+    }
+    
+    header#responsive>section{
+        display: flex;
+        flex-direction: row;
+        padding: 2em 0;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--blanco);
+        width: 100%;
+    }
+
+
+    header#responsive>section{
+            border-bottom: none;
+            justify-content: space-between;
+            padding: 0 0;
+            
+        }
+    
+        header#responsive>section>figure{
+            width: 145px;
+            margin: 1.5em 3em ;
+        }
+        
+        header#responsive nav{
+            display: none;
+        }
+        header#responsive .nav-responsive{
+            display: block;
+        }
+        header#responsive nav.responsive{
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 100px;
+            background-color: #407cc0;
+            width: 100%;
+        }
+        header#responsive nav.responsive ul{
+            display: block !important;
+            border-top: 1px solid #fff;
+            box-shadow: 0 2px 2px #4e4e4e;
+        }
+    
+        header#responsive nav.responsive ul li{
+            border-bottom: 1px solid #fff;
+            padding: 10px 10px;
+        }
+    
+    
+        header#responsive>form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        header#responsive nav.responsive ul li:hover{
+            background-color: #aec3df;
+            
+        }
+
+        header#responsive form{
+            width: 100%;
+            
+        }
+        
+        header#responsive form>section{
+            width: 100%;
+            display: flex;
+            padding: 0.4em 0;
+            align-items: center;
+            background: #e1e1e1;
+            transition: background 0.25s;
+        }
+        
+        
+        header#responsive form>section:focus-within{
+            background: #f1f1f1;
+        }
+        
+        header#responsive form>section>input{
+            font-size: 1em;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            color: #333333;
+            margin-left: 2em;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            width: 800px;
+        }
+        
+        header#responsive form>section>input{
+            font-size: 1em;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            color: #333333;
+            margin-left: 2em;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            width: 100%;
+        }
+        header#responsive form>section>i{
+            padding: 0 1em;
+        }
+        
+        
+        
+        header#responsive form>section>input::placeholder,
+        header#responsive form>section>i{
+            color: rgba(0, 0, 0, 0.25);
+        }
+
+        header#responsive div{
+            background-color: #407cc0;
+            color: #fff;
+            padding: 2.5em 2em;
+            cursor: pointer;
+            display: none;
+            border-left: 1px solid #fff;
+            margin-left: 2em;
+        }
+
+        header#responsive nav>ul{
+            list-style: none;
+            display: flex;
+        }
+        
+        header#responsive nav>ul>li{
+            padding: 1em 1em;
+            font-size: 1em;
+            font-family: "Poppins", sans-serif;
+            text-transform: uppercase;
+            transition: background 0.25s;
+        }
+        
+        header#responsive nav>ul>li:hover{
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        header#responsive nav>ul>li:hover a{
+            color: #000;
+        }
+        
+        header#responsive nav>ul>li>a{
+            color: #fff;
+        }

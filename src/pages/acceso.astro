@@ -1,6 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/acceso.css";
+import { parse } from "cookie";
+
+const session = parse(Astro.request.headers.get("cookie") || "").session;
+if (session) {
+  throw Astro.redirect("/perfil");
+}
 ---
 
 <Layout>

@@ -1,48 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { parse } from "cookie";
-
-const cookies = Astro.request.headers.get("cookie") || "";
-const session = parse(cookies).session;
-
-if (session) {
-  throw Astro.redirect("/perfil");
-}
+import "../styles/acceso.css";
 ---
 
 <Layout>
   <main>
     <h1>Acceso</h1>
-
     <section>
-      <h2>Registro</h2>
-      <form action="/api/register" method="POST">
-        <input name="nombre_usuario" placeholder="Nombre de usuario" required />
-        <input name="nombre" placeholder="Nombre" required />
-        <input name="apellido" placeholder="Apellido" required />
-        <input name="email" type="email" placeholder="Email" required />
-        <input
-          name="contraseña"
-          type="password"
-          placeholder="Contraseña"
-          required
-        />
-        <button type="submit">Registrarse</button>
-      </form>
-    </section>
+      <!-- Formulario de Registro -->
+      <section>
+        <h2>Registro</h2>
+        <form action="/api/register" method="POST">
+          <input
+            name="nombre_usuario"
+            placeholder="Nombre de usuario"
+            required
+          />
+          <input name="nombre" placeholder="Nombre" required />
+          <input name="apellido" placeholder="Apellido" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input
+            name="contraseña"
+            type="password"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit">Registrarse</button>
+        </form>
+      </section>
 
-    <section>
-      <h2>Login</h2>
-      <form action="/api/login" method="POST">
-        <input name="email" type="email" placeholder="Email" required />
-        <input
-          name="contraseña"
-          type="password"
-          placeholder="Contraseña"
-          required
-        />
-        <button type="submit">Iniciar sesión</button>
-      </form>
+      <!-- Formulario de Login -->
+      <section>
+        <h2>Login</h2>
+        <form action="/api/login" method="POST">
+          <input name="email" type="email" placeholder="Email" required />
+          <input
+            name="contraseña"
+            type="password"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit">Iniciar sesión</button>
+        </form>
+      </section>
     </section>
   </main>
 </Layout>

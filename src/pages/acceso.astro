@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { parse } from "cookie";
+import "../styles/acceso.css";
 
 // Verificamos si el usuario está logueado.
 const cookies = parse(Astro.request.headers.get("cookie") || "");

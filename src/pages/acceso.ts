@@ -12,7 +12,7 @@ export const GET: APIRoute = async ({ request, redirect }) => {
 
   // Si no está logueado, mostramos el formulario de acceso
   return new Response(
-    await (await fetch(import.meta.env.SITE + '/acceso.html')).text(), // La página de acceso sigue accesible
+    await (await fetch(import.meta.env.SITE + '/acceso')).text(), // La página de acceso sigue accesible
     {
       headers: { 'Content-Type': 'text/html' },
     }

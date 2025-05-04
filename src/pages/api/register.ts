@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       [nombre_usuario, nombre, apellido, email, hash]
     );
 
-    return redirect('/acceso?registro=ok');
+    return redirect('/');
 } catch (err) {
     if (err instanceof Error) {
       return new Response('Error al registrar: ' + err.message, { status: 500 });

@@ -1,12 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("registro-form");
-    const email = document.getElementById("email");
-    const repeatEmail = document.getElementById("repeat-email");
-    const emailError = document.getElementById("email-error");
-  
-    const password = document.getElementById("password");
-    const repeatPassword = document.getElementById("repeat-password");
-    const passwordError = document.getElementById("password-error");
+    const form = document.getElementById("login-form");
   
     // Crear el pop-up dinámicamente
     const popup = document.createElement("div");
@@ -24,68 +17,47 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async (e) => {
       e.preventDefault(); // Detener envío por defecto
   
-      let valid = true;
-  
-      // Reset estilos de error
-      [email, repeatEmail, password, repeatPassword].forEach((input) => {
-        input.style.border = "";
-      });
-      emailError.textContent = "";
-      passwordError.textContent = "";
-  
-      // Validar email
-      if (email.value !== repeatEmail.value) {
-        email.style.border = "2px solid red";
-        repeatEmail.style.border = "2px solid red";
-        emailError.textContent = "Los emails no coinciden";
-        valid = false;
-      }
-  
-      // Validar contraseña
-      if (password.value !== repeatPassword.value) {
-        password.style.border = "2px solid red";
-        repeatPassword.style.border = "2px solid red";
-        passwordError.textContent = "Las contraseñas no coinciden";
-        valid = false;
-      }
-  
-      if (!valid) return;
-  
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+      const data = {
+        email: formData.get("email"),
+        contraseña: formData.get("contraseña"),
+      };
   
       try {
-        const res = await fetch("/api/register", {
+        const res = await fetch("/api/login", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" },
         });
   
         const result = await res.json();
   
+        // Limpiar cualquier mensaje previo
+        popupText.innerHTML = "";
+  
         if (res.ok && result.success) {
-          // Si el registro es exitoso
+          // Si el inicio de sesión fue exitoso
           popup.classList.remove("error"); // Eliminar la clase de error
           popup.classList.add("success");  // Añadir la clase de éxito
           popupIcon.textContent = "✔️";   // Icono de éxito
-          showPopup("Registro exitoso!");
-  
+          showPopup("¡Inicio de sesión exitoso!");
+          
           setTimeout(() => {
-            window.location.href = "/acceso"; // Redirigir al login después del registro
+            window.location.href = "/perfil"; // Redirige a la página del perfil
           }, 2000);
         } else {
-          // Si el registro falla
+          // Si el inicio de sesión falla
           popup.classList.remove("success"); // Eliminar la clase de éxito
           popup.classList.add("error");      // Añadir la clase de error
           popupIcon.textContent = "❌";       // Icono de error
-          showPopup(result.message || "Datos introducidos no válidos");
+          showPopup(result.message || "Los datos introducidos no son correctos. Intenta de nuevo.");
         }
-      } catch (err) {
-        // En caso de error en la conexión
+      } catch (error) {
+        // En caso de error inesperado
         popup.classList.remove("success"); // Eliminar la clase de éxito
         popup.classList.add("error");      // Añadir la clase de error
         popupIcon.textContent = "❌";       // Icono de error
-        showPopup("Error al conectar con el servidor");
+        showPopup("Error al iniciar sesión. Intenta de nuevo más tarde.");
       }
     });
   

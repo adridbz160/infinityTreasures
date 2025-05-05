@@ -79,24 +79,48 @@
     margin: 0.25em 0 1em;
   }
   
-  .popup {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #d4edda;
-    border: 2px solid #28a745;
-    color: #155724;
-    padding: 1em 1.5em;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-    z-index: 1000;
-    transition: opacity 0.3s ease;
-  }
-  
-  .popup.hidden {
-    display: none;
-  }
+/* Estilos comunes para el pop-up */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #d4edda;  /* Color por defecto (verde claro) */
+  border: 2px solid #28a745;   /* Color del borde por defecto (verde) */
+  color: #155724;              /* Color del texto por defecto (verde oscuro) */
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  opacity: 1; /* Por defecto, el pop-up es visible */
+}
+
+/* Ocultar el pop-up */
+.popup.hidden {
+  opacity: 0;
+  visibility: hidden; /* No ocupa espacio cuando está oculto */
+}
+
+/* Estilos específicos para el éxito */
+.popup.success {
+  background-color: #d4edda; /* Fondo verde claro */
+  border-color: #28a745;      /* Borde verde */
+  color: #155724;             /* Texto verde oscuro */
+}
+
+/* Estilos específicos para el error */
+.popup.error {
+  background-color: #f8d7da; /* Fondo rojo claro */
+  border-color: #dc3545;      /* Borde rojo */
+  color: #721c24;             /* Texto rojo oscuro */
+}
+
+/* Icono del pop-up (en caso de que quieras cambiar de color los iconos) */
+.popup-icon {
+  font-size: 1.5em;
+}
+
   

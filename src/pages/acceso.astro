@@ -18,7 +18,7 @@ if (session) {
       <h2>Registro</h2>
       <form
         id="registroForm"
-        action="/api/register"
+        action="/.netlify/functions/register"
         method="POST"
         onsubmit="return validateForm()"
       >
@@ -62,7 +62,7 @@ if (session) {
       </div>
 
       <h2>Login</h2>
-      <form action="/api/login" method="POST">
+      <form action="/.netlify/functions/login" method="POST">
         <input name="email" type="email" placeholder="Email" required />
         <input
           name="contraseña"

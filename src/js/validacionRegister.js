@@ -8,12 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const repeatPassword = document.getElementById("repeat-password");
     const passwordError = document.getElementById("password-error");
   
-    // Crear el pop-up dinámicamente
     const popup = document.createElement("div");
     popup.id = "popup";
     popup.className = "popup hidden";
     popup.innerHTML = `
-      <span id="popup-icon" class="popup-icon">✔️</span>
+      <span id="popup-icon">✔️</span>
       <span id="popup-text">Mensaje</span>
     `;
     document.body.appendChild(popup);
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       let valid = true;
   
-      // Reset estilos de error
+      // Reset estilos
       [email, repeatEmail, password, repeatPassword].forEach((input) => {
         input.style.border = "";
       });
@@ -64,37 +63,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const result = await res.json();
   
         if (res.ok && result.success) {
-          // Si el registro es exitoso
-          popup.classList.remove("error"); // Eliminar la clase de error
-          popup.classList.add("success");  // Añadir la clase de éxito
-          popupIcon.textContent = "✔️";   // Icono de éxito
-          showPopup("Registro exitoso!");
-  
+          showPopup("✔️", "Registro exitoso", true);
           setTimeout(() => {
-            window.location.href = "/acceso"; // Redirigir al login después del registro
-          }, 2000);
+            window.location.href = "/acceso";
+          }, 3000);
         } else {
-          // Si el registro falla
-          popup.classList.remove("success"); // Eliminar la clase de éxito
-          popup.classList.add("error");      // Añadir la clase de error
-          popupIcon.textContent = "❌";       // Icono de error
-          showPopup(result.message || "Datos introducidos no válidos");
+          showPopup("❌", result.message || "Datos introducidos no válidos", false);
         }
       } catch (err) {
-        // En caso de error en la conexión
-        popup.classList.remove("success"); // Eliminar la clase de éxito
-        popup.classList.add("error");      // Añadir la clase de error
-        popupIcon.textContent = "❌";       // Icono de error
-        showPopup("Error al conectar con el servidor");
+        showPopup("❌", "Error al conectar con el servidor", false);
       }
     });
   
-    function showPopup(message) {
+    function showPopup(icon, message, success) {
+      popupIcon.textContent = icon;
       popupText.textContent = message;
-      popup.classList.remove("hidden"); // Mostrar el pop-up
+      popup.style.backgroundColor = success ? "#d4edda" : "#f8d7da";
+      popup.style.borderColor = success ? "#28a745" : "#dc3545";
+      popup.classList.remove("hidden");
   
       setTimeout(() => {
-        popup.classList.add("hidden");  // Ocultar el pop-up después de 3 segundos
+        popup.classList.add("hidden");
       }, 3000);
     }
   });

@@ -7,7 +7,7 @@ const pool = new Pool({
 });
 
 export const POST: APIRoute = async ({ request }) => {
-  const form = await request.json(); // ← usamos JSON, no formData
+  const form = await request.json();
 
   const { nombre_usuario, nombre, apellido, email, contraseña } = form;
 
@@ -31,17 +31,28 @@ export const POST: APIRoute = async ({ request }) => {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
-  } catch (err) {
-    if (err instanceof Error) {
-      return new Response(JSON.stringify({ success: false, message: err.message }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    } else {
-      return new Response(JSON.stringify({ success: false, message: 'Error desconocido' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
+  } catch (err: any) {
+    if (err.code === '23505') {
+      // Error de clave duplicada
+      if (err.constraint === 'usuarios_email_key') {
+        return new Response(JSON.stringify({ success: false, message: 'Este correo ya está registrado.' }), {
+          status: 409,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+
+      if (err.constraint === 'usuarios_nombre_usuario_key') {
+        return new Response(JSON.stringify({ success: false, message: 'Este nombre de usuario ya está en uso.' }), {
+          status: 409,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
     }
+
+    // Cualquier otro error
+    return new Response(JSON.stringify({ success: false, message: 'Error al registrar: ' + err.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 };

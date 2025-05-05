@@ -1,96 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { parse } from "cookie";
-import { Pool } from "pg";
 import "../styles/perfil.css";
 
-// Obtener la cookie de sesión
 const cookies = parse(Astro.request.headers.get("cookie") || "");
 const session = cookies.session;
 
 if (!session) {
   throw Astro.redirect("/acceso");
 }
-
-// Conexión a la base de datos
-const pool = new Pool({
-  connectionString: import.meta.env.DATABASE_URL,
-});
-
-// Obtener los datos del usuario logueado
-const res = await pool.query(
-  "SELECT id, nombre_usuario, nombre, apellido, email, foto_perfil FROM usuarios WHERE id = $1",
-  [session]
-);
-const usuario = res.rows[0];
-
-if (!usuario) {
-  throw Astro.redirect("/acceso");
-}
 ---
 
 <Layout>
   <main>
-    <h1>Bienvenido, {usuario.nombre_usuario}</h1>
-
-    <!-- Mostrar la foto de perfil -->
-    <img
-      src={usuario.foto_perfil || "/default-avatar.png"}
-      alt="Foto de perfil"
-      width="150"
-    />
-
-    <!-- Formulario de edición del perfil -->
-    <form
-      action="/api/updateProfile"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <input type="hidden" name="id" value={usuario.id} />
-
-      <label for="nombre_usuario">Nombre de usuario:</label>
-      <input
-        type="text"
-        id="nombre_usuario"
-        name="nombre_usuario"
-        value={usuario.nombre_usuario}
-        required
-      />
-
-      <label for="nombre">Nombre:</label>
-      <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        value={usuario.nombre}
-        required
-      />
-
-      <label for="apellido">Apellido:</label>
-      <input
-        type="text"
-        id="apellido"
-        name="apellido"
-        value={usuario.apellido}
-        required
-      />
-
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        value={usuario.email}
-        required
-      />
-
-      <label for="foto_perfil">Foto de perfil:</label>
-      <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*" />
-
-      <button type="submit">Actualizar perfil</button>
-    </form>
-
-    <!-- Cerrar sesión -->
-    <a href="/.netlify/functions/logout">Cerrar sesión</a>
+    <section>
+      <h1>Bienvenido a tu perfil</h1>
+      <a href="/.netlify/functions/logout">Cerrar sesión</a>
+    </section>
   </main>
 </Layout>

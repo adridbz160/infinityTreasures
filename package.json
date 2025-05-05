@@ -12,7 +12,6 @@
     "@astrojs/netlify": "^6.3.2",
     "astro": "^5.7.10",
     "bcrypt": "^5.1.1",
-    "canvas": "^3.1.0",
     "cookie": "^1.0.2",
     "dotenv": "^16.5.0",
     "netlify": "^13.3.5",

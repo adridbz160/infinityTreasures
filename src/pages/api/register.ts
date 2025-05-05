@@ -6,17 +6,16 @@ const pool = new Pool({
   connectionString: import.meta.env.DATABASE_URL,
 });
 
-export const POST: APIRoute = async ({ request, redirect }) => {
-  const form = await request.formData();
+export const POST: APIRoute = async ({ request }) => {
+  const form = await request.json(); // ← usamos JSON, no formData
 
-  const nombre_usuario = form.get('nombre_usuario')?.toString();
-  const nombre = form.get('nombre')?.toString();
-  const apellido = form.get('apellido')?.toString();
-  const email = form.get('email')?.toString();
-  const contraseña = form.get('contraseña')?.toString();
+  const { nombre_usuario, nombre, apellido, email, contraseña } = form;
 
   if (!nombre_usuario || !nombre || !apellido || !email || !contraseña) {
-    return new Response('Faltan campos obligatorios', { status: 400 });
+    return new Response(JSON.stringify({ success: false, message: 'Faltan campos obligatorios' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   const hash = await bcrypt.hash(contraseña, 10);
@@ -28,12 +27,21 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       [nombre_usuario, nombre, apellido, email, hash]
     );
 
-    return redirect('/');
-} catch (err) {
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (err) {
     if (err instanceof Error) {
-      return new Response('Error al registrar: ' + err.message, { status: 500 });
+      return new Response(JSON.stringify({ success: false, message: err.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
     } else {
-      return new Response('Error desconocido', { status: 500 });
+      return new Response(JSON.stringify({ success: false, message: 'Error desconocido' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
   }
 };

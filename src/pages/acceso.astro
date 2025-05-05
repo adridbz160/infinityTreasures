@@ -16,17 +16,41 @@ if (session) {
     <h1>Acceso</h1>
     <section>
       <h2>Registro</h2>
-      <form action="/api/register" method="POST">
+      <form id="registro-form" action="/api/register" method="POST" novalidate>
         <input name="nombre_usuario" placeholder="Nombre de usuario" required />
         <input name="nombre" placeholder="Nombre" required />
         <input name="apellido" placeholder="Apellido" required />
-        <input name="email" type="email" placeholder="Email" required />
+
         <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          id="repeat-email"
+          type="email"
+          placeholder="Repite el Email"
+          required
+        />
+        <p id="email-error" class="error-msg"></p>
+
+        <input
+          id="password"
           name="contraseña"
           type="password"
           placeholder="Contraseña"
           required
         />
+        <input
+          id="repeat-password"
+          type="password"
+          placeholder="Repite la Contraseña"
+          required
+        />
+        <p id="password-error" class="error-msg"></p>
+
         <button type="submit">Registrarse</button>
       </form>
 
@@ -43,4 +67,6 @@ if (session) {
       </form>
     </section>
   </main>
+
+  <script src="../js/validacionRegister.js"></script>
 </Layout>

@@ -73,42 +73,9 @@
     text-decoration: underline;
   }
   
-  .error-message {
+  .error-msg {
     color: red;
-    font-size: 0.9rem;
-    margin-top: 1rem;
-  }
-  
-  .success-message {
-    color: green;
-    font-size: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .form-toggle {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-toggle button {
-    background: none;
-    border: none;
-    color: #007BFF;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .form-toggle button:hover {
-    text-decoration: underline;
-  }
-  
-  /* Separar formularios */
-  .form-container {
-    display: none;
-  }
-  
-  .form-container.active {
-    display: block;
+    font-size: 0.9em;
+    margin: 0.25em 0 1em;
   }
   

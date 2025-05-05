@@ -42,7 +42,8 @@ export const POST: APIRoute = async ({ request }) => {
       }
 
       if (err.constraint === 'usuarios_nombre_usuario_key') {
-        return new Response(JSON.stringify({ success: false, message: 'Este nombre de usuario ya está en uso.' }), {
+        // Modificación del mensaje de error
+        return new Response(JSON.stringify({ success: false, message: 'El nombre de usuario ya está registrado.' }), {
           status: 409,
           headers: { 'Content-Type': 'application/json' },
         });

@@ -93,11 +93,28 @@
     gap: 0.5em;
     align-items: center;
     z-index: 1000;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   .popup.hidden {
-    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none; /* Desactiva la interacción mientras está oculto */
   }
   
+  .popup .icon {
+    font-size: 1.5em;
+  }
+  
+  .popup.success {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+  }
+  
+  .popup.error {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+  }
   

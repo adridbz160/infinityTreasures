@@ -3,12 +3,11 @@ import bcrypt from "bcrypt";
 import { Pool } from "pg";
 import { serialize } from "cookie";
 
-// Crear una instancia de la clase Pool
 const pool = new Pool({
   connectionString: import.meta.env.DATABASE_URL,
 });
 
-export const POST: APIRoute = async ({ request, redirect }) => {
+export const POST: APIRoute = async ({ request }) => {
   const form = await request.formData();
   const email = form.get("email")?.toString();
   const contraseña = form.get("contraseña")?.toString();
@@ -18,26 +17,35 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   }
 
   try {
-    // Usar la instancia de pool para ejecutar la consulta
+    // Consulta para obtener al usuario por el email
     const res = await pool.query("SELECT * FROM usuarios WHERE email = $1", [email]);
     const usuario = res.rows[0];
 
-    if (!usuario || !(await bcrypt.compare(contraseña, usuario.contraseña))) {
+    // Verificar si el usuario existe
+    if (!usuario) {
+      return new Response("Usuario no encontrado", { status: 404 });
+    }
+
+    // Comparar la contraseña ingresada con la hasheada
+    const contrasenaValida = await bcrypt.compare(contraseña, usuario.contraseña);
+    
+    if (!contrasenaValida) {
       return new Response("Credenciales incorrectas", { status: 401 });
     }
 
+    // Si las credenciales son correctas, generar la cookie
     const cookie = serialize("session", usuario.id.toString(), {
       httpOnly: true,
       path: "/",
-      maxAge: 60 * 60 * 24 * 7,
-      sameSite: "strict", // esto ayuda a Netlify
+      maxAge: 60 * 60 * 24 * 7, // 7 días
+      sameSite: "strict",
     });
 
     return new Response(null, {
       status: 302,
       headers: {
         "Set-Cookie": cookie,
-        Location: "/perfil",
+        Location: "/perfil", // Redirigir al perfil después de iniciar sesión
       },
     });
 

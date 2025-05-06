@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const popupIcon = popup.querySelector("#popup-icon");
       const popupText = popup.querySelector("#popup-text");
 
+      // Verificamos que popupIcon y popupText no sean null
+      if (!popupIcon || !popupText) {
+        console.error("Error: El pop-up no se pudo crear correctamente.");
+        return;
+      }
+
       try {
         const response = await fetch("/api/login", {
           method: "POST",
@@ -45,6 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showPopup(icon, message, success) {
+    const popup = document.getElementById("popup");
+    if (!popup) return;
+
+    const popupIcon = popup.querySelector("#popup-icon");
+    const popupText = popup.querySelector("#popup-text");
+
+    // Verificamos que popupIcon y popupText no sean null
+    if (!popupIcon || !popupText) {
+      console.error("Error: No se pudo acceder a los elementos del pop-up.");
+      return;
+    }
+
     popupIcon.textContent = icon;
     popupText.textContent = message;
     popup.style.backgroundColor = success ? "#d4edda" : "#f8d7da";

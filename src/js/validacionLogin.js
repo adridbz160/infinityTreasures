@@ -1,59 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.getElementById("login-form");
-
-  const popup = document.createElement("div");
-  popup.id = "popup";
-  popup.className = "popup hidden";
-  popup.innerHTML = `
-    <span id="popup-icon">✔️</span>
-    <span id="popup-text">Mensaje</span>
-  `;
-  document.body.appendChild(popup);
-
-  const popupIcon = popup.querySelector("#popup-icon");
-  const popupText = popup.querySelector("#popup-text");
-
-  loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Detener envío por defecto
-
-    const formData = new FormData(loginForm);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("login-form");
+  
+    if (loginForm) {
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+  
+        const formData = new FormData(loginForm);
+        const email = formData.get("email");
+        const contraseña = formData.get("contraseña");
+  
+        try {
+          const response = await fetch("/api/login", {
+            method: "POST",
+            body: formData,
+          });
+  
+          if (response.ok) {
+            alert("Inicio de sesión exitoso");
+            window.location.href = "/perfil";
+          } else if (response.status === 401) {
+            alert("Los datos introducidos no son correctos. Inténtalo de nuevo.");
+          } else {
+            alert("Ocurrió un error. Intenta más tarde.");
+          }
+        } catch (error) {
+          console.error("Error en la solicitud:", error);
+          alert("Error al conectar con el servidor.");
+        }
       });
-
-      const result = await res.json();
-
-      if (res.ok && result.success) {
-        showPopup("✔️", "Inicio de sesión exitoso", true);
-        setTimeout(() => {
-          window.location.href = "/perfil";
-        }, 3000);
-      } else {
-        showPopup("❌", result.message || "Credenciales incorrectas", false);
-      }
-    } catch (err) {
-      showPopup("❌", "Error al conectar con el servidor", false);
     }
   });
-
-  function showPopup(icon, message, success) {
-    popupIcon.textContent = icon;
-    popupText.textContent = message;
-    
-    // Cambiar la clase de éxito o error para aplicar los estilos correspondientes
-    popup.classList.remove("success", "error");
-    popup.classList.add(success ? "success" : "error");
   
-    popup.classList.remove("hidden");
-  
-    setTimeout(() => {
-      popup.classList.add("hidden");
-    }, 3000);
-  }
-  
-});

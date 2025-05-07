@@ -1,6 +1,7 @@
 /* General */
 
-  main>section{
+
+  main{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -9,74 +10,294 @@
     min-height: 100vh;
   }
   
-  .container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
+  main *{
+    font-family: "Poppins", sans-serif;
   }
-  
-  h1 {
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+
+  .wrapper{
+    position: relative;
+    width: 750px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid #0ef;
+    background-color: rgb(175, 175, 175);
+    box-shadow: 0 0 25px #0ef;
+    overflow: hidden;
   }
-  
-  form {
+
+  .wrapper .form-box{
+    position: absolute;
+    top: 0%;
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    justify-content: center;
+  }
+
+  .wrapper .form-box.login{
+    left: 0;
+    padding: 0 60px 0 40px;
+  }
+
+  .wrapper .form-box.login .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+  }
+
+  .wrapper.active .form-box.login .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--i));
+  }
+
+  .wrapper .form-box.register{
+    right: 0;
+    padding: 0 60px 0 40px;
+  }
+
+  .wrapper .form-box.register .animation{
+    transform: translateX(120%);
+    transition: .7s ease;
+    opacity: 0;
+    filter: blur(10px);
   }
   
-  input[type="text"],
-  input[type="password"],
-  input[type="email"] {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease;
+  .wrapper.active .form-box.register .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
   }
-  
-  input[type="text"]:focus,
-  input[type="password"]:focus,
-  input[type="email"]:focus {
-    border-color: #007BFF;
+
+  .wrapper .form-box.register .overflow-content{
+    overflow: auto;
+    height: 250px;
+    width: 320px;
+    padding: 0 20px 0 0;
   }
-  
-  button {
-    background-color: #007BFF;
-    color: white;
+
+  .form-box h2{
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .form-box .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 25px 0;
+  }
+
+  .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
     border: none;
-    padding: 1rem;
-    font-size: 1.1rem;
-    border-radius: 5px;
+    outline: none;
+    border-bottom: 2px solid #fff;
+    padding-right: 23px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    transition: border-bottom-color .5s;
+  }
+
+  .input-box input:focus,
+  .input-box input:valid{
+    border-bottom-color: #0ef;
+  }
+
+  .input-box label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+
+  .input-box input:focus~label,
+  .input-box input:valid~label{
+    top: -5px;
+    color: #0ef;
+  }
+
+  .input-box i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #fff;
+    transition: .5s;
+  }
+
+  .input-box input:focus~i,
+  .input-box input:valid~i {
+    color: #0ef;
+  }
+
+  .btn{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #0ef;
+    outline: none;
+    border-radius: 40px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .btn::before{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background: linear-gradient(#081b29, #0ef, #081b29,#0ef);
+    z-index: -1;
+    transition: 0.5s;
+
+  }
+
+  .btn:hover::before{
+    top: 0;
+  }
+
+  .form-box .logreg-link{
+    font-size: 14.5px;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0 10px;
   }
   
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  a {
-    color: #007BFF;
+  .logreg-link p a{
+    color: #0ef;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-weight: 600;
   }
-  
-  a:hover {
+
+  .logreg-link p a:hover{
     text-decoration: underline;
   }
-  
+
   .error-msg {
     color: red;
     font-size: 0.9em;
     margin: 0.25em 0 1em;
+  }
+
+  .wrapper .info-text{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+  }
+
+  .wrapper .info-text.login{
+    right: 0;
+    text-align: right;
+    padding: 0 40px 60px 80px;
+  }
+
+  .wrapper .info-text.login .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+  }
+
+  .wrapper.active .info-text.login .animation{
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--i));
+  }
+
+  .wrapper .info-text.register{
+    left: 0;
+    text-align: left;
+    padding: 0 90px 60px 40px;
+    pointer-events: none;
+  }
+
+  .wrapper .info-text.register .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+  }
+  .wrapper.active .info-text.register .animation{
+    transform: translateX(-120%0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
+    
+  }
+  
+
+  .info-text h2{
+    font-size: 36px;
+    color: #fff;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .info-text p{
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .wrapper .bg-animate{
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 850px;
+    height: 600px;
+    background: linear-gradient(45deg, #081b29, #0ef);
+    border-bottom: 3px solid #0ef;
+    transform: rotate(10deg) skewY(40deg);
+    transform-origin: bottom right;
+    transition: 1.5s ease;
+  }
+
+  .wrapper.active .bg-animate{
+    transform: rotate(0) skewY(0);
+    transition-duration: .5s;
+  }
+  .wrapper .bg-animate2{
+    position: absolute;
+    top: 100%;
+    left: 250px;
+    width: 850px;
+    height: 700px;
+    background-color: rgb(175, 175, 175);
+    border-top: 3px solid #0ef;
+    transform: rotate(0) skewY(0);
+    transform-origin: bottom left;
+    transition: 1.5s ease;
+  }
+
+  .wrapper.active .bg-animate2{
+    transform: rotate(-11deg) skewY(-41deg);
+    transition-delay: 1.2s;
+
   }
   
   .popup {

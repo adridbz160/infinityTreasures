@@ -33,8 +33,13 @@ a{
 /*Colores generales*/
 
 :root{
-    --cabecera: #4A90E2;
-    --blanco: #f1f1f1
+    --degradado-azul: linear-gradient(to right, var(--azul--oscuro), var(--azul));
+    --azul--oscuro:#1d4ed8; 
+    --azul: #2563eb;
+    --azul-cielo: #4A90E2;
+    --azul-claro: #93c5fd;
+    --blanco: #f1f1f1;
+    --azul-oscuro-textos: rgb(31, 41, 55);
 }
 
 main{

@@ -1,0 +1,22 @@
+
+#usuarioBoton{
+ background-color: var(--azul--oscuro);     /* bg-blue-800 */
+ padding: 0.6em 1em;
+  border-radius: 9999px;         /* rounded-full */
+  font-weight: 500;              /* font-medium */
+  transition: all 0.2s ease;     /* transition */
+  display: flex;                 /* flex */
+  align-items: center;          /* items-center */
+  gap: 0.5rem;       
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Poppins';
+  font-size: 1em;
+  
+  transition: background-color .7s, color .7s;
+}
+
+#usuarioBoton:hover{
+    background-color: var(--azul-claro);
+    color: var(--azul--oscuro);
+}

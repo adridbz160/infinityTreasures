@@ -1,4 +1,6 @@
 ---
+import "../styles/usuarioBoton.css";
+
 import { parse } from "cookie";
 import { Pool } from "pg";
 
@@ -33,6 +35,7 @@ if (session) {
     </a>
   ) : (
     <a href="/acceso" id="usuarioBoton">
+      <i class="fas fa-key" />
       Acceder
     </a>
   )

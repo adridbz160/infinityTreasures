@@ -19,7 +19,7 @@ main>section>hr{
 }
 
 main>section:nth-child(odd){
-    background-color: var(--cabecera);
+    background: var(--azul);
     color: #fff;
 }
    

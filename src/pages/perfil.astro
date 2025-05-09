@@ -1,5 +1,4 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import LateralPerfil from "../components/lateralPerfil.astro";
 import { parse } from "cookie";
 import "../styles/perfil.css";
@@ -12,11 +11,9 @@ if (!session) {
 }
 ---
 
-<Layout>
+<main>
   <LateralPerfil />
-  <main>
-    <section>
-      <h1>Bienvenido a tu perfil</h1>
-    </section>
-  </main>
-</Layout>
+  <section>
+    <h1>Bienvenido a tu perfil</h1>
+  </section>
+</main>

@@ -1,11 +1,23 @@
 /* General */
 
-  main>section{
-    display: flex;
+main{
+  position: relative;
+   display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding-top: 2em;
     min-height: 100vh;
-  }
+}
+
+
+/*Barra navegación lateral iquierdo*/
+#lateralPerfil{
+  position: fixed;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+   
+  
   

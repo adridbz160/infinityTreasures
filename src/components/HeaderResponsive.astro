@@ -1,14 +1,20 @@
 ---
 import "../styles/headerResponsive.css";
+import UsuarioBoton from "./usuarioBoton.astro";
 ---
 
 <header id="responsive">
   <section>
-    <figure>
-      <img src="/img/logo.webp" alt="Logo de Infinity Treasures Vault" />
-    </figure>
-    <div>
-      <i></i>
+    <div class="izquierda">
+      <div class="image_logo">
+        <img src="/img/logo.webp" alt="Logo de Infinity Treasures Vault" />
+      </div>
+    </div>
+
+    <div class="derecha">
+      <div>
+        <i></i>
+      </div>
     </div>
   </section>
   <nav>
@@ -16,14 +22,16 @@ import "../styles/headerResponsive.css";
       <li><a href="/">Inicio</a></li>
       <li><a href="/productos">Productos</a></li>
       <li><a href="/registroProducto">Registrar Producto</a></li>
-      <li><a href="/login">Acceder <i class="fa-solid fa-user"></i></a></li>
+      <li>
+        <form>
+          <section>
+            <input type="search" placeholder="Buscar" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </section>
+        </form>
+        <UsuarioBoton />
+      </li>
     </ul>
   </nav>
-
-  <form>
-    <section>
-      <input type="search" placeholder="Buscar" />
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </section>
-  </form>
+  <script src="../js/navegacionResponsive.js"></script>
 </header>

@@ -49,6 +49,7 @@ header#normal{
         background: #fff;
         transition: background 0.25s;
         border-radius: 9999px;
+        position: relative;
     }
     
     header#normal form>section:focus-within{
@@ -65,11 +66,13 @@ header#normal{
         outline: none;
         border: none;
         background-color: transparent;
-        position: relative;
+        
     }
     
     header#normal form>section>i{
         padding: 0 1em;
+        position: absolute;
+        right: 0;
     }
     
     
@@ -102,6 +105,7 @@ header#normal{
     
     header#normal nav>ul>li>a{
         color: #fff;
+        display: block;
     }
 
 

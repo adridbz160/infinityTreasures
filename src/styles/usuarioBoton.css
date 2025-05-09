@@ -12,7 +12,7 @@
   font-weight: bold;
   font-family: 'Poppins';
   font-size: 1em;
-  
+  box-shadow: 0px 0px 4px #83838381;
   transition: background-color .7s, color .7s;
 }
 

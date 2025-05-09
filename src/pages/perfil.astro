@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LateralPerfil from "../components/lateralPerfil.astro";
 import { parse } from "cookie";
 import "../styles/perfil.css";
 
@@ -12,10 +13,10 @@ if (!session) {
 ---
 
 <Layout>
+  <LateralPerfil />
   <main>
     <section>
       <h1>Bienvenido a tu perfil</h1>
-      <a href="/.netlify/functions/logout">Cerrar sesión</a>
     </section>
   </main>
 </Layout>

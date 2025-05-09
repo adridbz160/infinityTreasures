@@ -1,23 +1,9 @@
 /* General */
 
-main{
+body{
   position: relative;
    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 12.5em;
 }
 
-
-/*Barra navegación lateral iquierdo*/
-#lateralPerfil{
-  position: fixed;
-  min-height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-   
-  
-  

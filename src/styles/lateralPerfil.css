@@ -1,0 +1,118 @@
+/*Barra navegación lateral iquierdo*/
+#lateralPerfil{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 200px;
+  
+   background-color: var(--azul);
+   color: #fff;
+}
+
+#lateralPerfil *{
+   color: #fff;
+   
+}
+
+#lateralPerfil header i{
+    font-size: 1.5rem;
+}
+
+
+#lateralPerfil h2, #lateralPerfil span{
+    font-family: "Poppins", serif; 
+}
+
+#lateralPerfil ul i{
+  font-size: 1.25rem;
+}
+
+
+
+
+
+#lateralPerfil header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  
+}
+
+#lateralPerfil h2 {
+  margin-left: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+
+#lateralPerfil>section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+#lateralPerfil ul li{
+  position: relative;
+   display: block;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+#lateralPerfil ul li:hover {
+  background-color: #4f46e5; /* indigo-600 */
+}
+
+#lateralPerfil ul li:active {
+  background-color: #3730a3; /* indigo-800 */
+}
+
+#lateralPerfil ul li a{
+  display: block;
+}
+
+
+
+
+#lateralPerfil ul li span {
+  
+  margin-left: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+#lateralPerfil ul li:first-of-type i{
+  padding-left: 0.2em;
+}
+#lateralPerfil ul li:nth-of-type(4) i{
+  padding-left: 0.02em;
+}
+
+
+#lateralPerfil footer ul li:first-of-type i{
+padding-left: 0em;
+}
+#lateralPerfil footer ul li:last-of-type i{
+padding-left: 0.2em;
+}
+#lateralPerfil footer ul li:last-of-type span{
+margin-left: 0.4em;
+}
+
+.sidebar-separator {
+  border-top: 1px solid #dbdbdb;
+  margin: 0.5rem 0;
+  width: 80%;
+}
+

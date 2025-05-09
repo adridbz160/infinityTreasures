@@ -1,10 +1,53 @@
+---
+import "../styles/lateralPerfil.css";
+---
+
 <div id="lateralPerfil">
-  <a href="/">Home</a>
-  <ul>
-    <li><a href="/">Cuenta</a></li>
-    <li><a href="/">Tus Productos</a></li>
-    <li><a href="/">Calificaciones</a></li>
-    <li><a href="/"></a></li>
-  </ul>
-  <a href="/.netlify/functions/logout">Cerrar sesión</a>
+  <header>
+    <i class="fas fa-user-edit"></i>
+    <h2>Mi Perfil</h2>
+  </header>
+
+  <div class="sidebar-separator"></div>
+  <section>
+    <ul>
+      <li>
+        <a href="#">
+          <i class="fas fa-user"></i>
+          <span> Perfil </span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fas fa-box-open"></i>
+          <span> Productos </span>
+        </a>
+        <li>
+          <a href="#">
+            <i class="fas fa-star"></i> <span>Calificaciones</span></a
+          >
+        </li>
+        <li>
+          <a href="#"> <i class="fas fa-heart"></i> <span>Favoritos</span></a>
+        </li>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Separador -->
+  <div class="sidebar-separator"></div>
+
+  <!-- Cerrar sesión -->
+  <footer>
+    <ul>
+      <li>
+        <a href="/"><i class="fas fa-home"></i><span>Inicio</span></a>
+      </li>
+      <li>
+        <a href="/.netlify/functions/logout"
+          ><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesion</span></a
+        >
+      </li>
+    </ul>
+  </footer>
 </div>

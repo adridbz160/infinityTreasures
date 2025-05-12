@@ -1,0 +1,281 @@
+---
+import { parse } from "cookie";
+import { Pool } from "pg";
+
+// Conexión a la base de datos
+const pool = new Pool({
+  connectionString: import.meta.env.DATABASE_URL,
+});
+
+// Leer cookies para obtener la sesión
+const cookies = parse(Astro.request.headers.get("cookie") || "");
+const sessionId = cookies.session;
+
+let usuario = null;
+if (sessionId) {
+  // Consultar la base de datos para obtener los datos del usuario
+  const res = await pool.query("SELECT * FROM usuarios WHERE id = $1", [
+    sessionId,
+  ]);
+  usuario = res.rows[0];
+}
+
+if (!usuario) {
+  throw Astro.redirect("/acceso"); // Redirigir si no se encuentra el usuario
+}
+---
+
+<header id="editarPerfil">
+  <section class="header-izq">
+    <h1>Editar Perfil</h1>
+  </section>
+  <a href="#" class="header-der">
+    <div class="imgUser">
+      <!-- Mostrar la imagen de perfil del usuario -->
+      <img
+        src={usuario.foto_perfil || "/img/default_profile_pic.webp"}
+        alt="Foto de perfil"
+      />
+    </div>
+    <span>{usuario.nombre_usuario}</span>
+  </a>
+</header>
+
+<main class="container">
+  <article class="profile-card">
+    <header>
+      <h1>Perfil de Usuario</h1>
+    </header>
+
+    <section class="card-content">
+      <div class="profile-layout">
+        <!-- Sección de avatar -->
+        <aside class="avatar-section">
+          <div class="profile-pic-upload">
+            <img
+              id="profile-pic"
+              src={usuario.foto_perfil || "/img/default_profile_pic.webp"}
+              alt="Profile Picture"
+            />
+            <div class="overlay">
+              <i class="fas fa-camera"></i>
+            </div>
+            <!-- Input oculto para cambiar la imagen -->
+            <input
+              type="file"
+              id="profile-upload"
+              accept="image/*"
+              style="display: none;"
+            />
+          </div>
+
+          <!-- Botón visible para cambiar la foto -->
+          <button type="button" id="change-photo-btn" class="btn-light"
+            >Cambiar foto</button
+          >
+          <p class="hint">JPG o PNG. Máx. 5MB</p>
+        </aside>
+
+        <!-- Formulario de perfil -->
+        <section class="form-section">
+          <h2>Información Personal</h2>
+          <form>
+            <fieldset class="form-grid">
+              <legend class="sr-only">Datos básicos</legend>
+
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  value={usuario.nombre}
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input
+                  type="text"
+                  id="apellido"
+                  name="apellido"
+                  value={usuario.apellido}
+                />
+              </div>
+
+              <div class="form-group full">
+                <label for="email">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={usuario.email}
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  value={usuario.telefono || ""}
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="nacimiento">Fecha de nacimiento</label>
+                <input
+                  type="date"
+                  id="nacimiento"
+                  name="nacimiento"
+                  value={usuario.fecha_nacimiento || ""}
+                />
+              </div>
+
+              <div class="form-group full">
+                <label>Género</label>
+                <div class="radio-group">
+                  <label
+                    ><input
+                      type="radio"
+                      name="genero"
+                      value="femenino"
+                      checked={usuario.genero === "femenino"}
+                    /> Femenino</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="genero"
+                      value="masculino"
+                      checked={usuario.genero === "masculino"}
+                    /> Masculino</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="genero"
+                      value="otro"
+                      checked={usuario.genero === "otro"}
+                    /> Otro</label
+                  >
+                </div>
+              </div>
+
+              <div class="form-group full">
+                <label for="direccion">Dirección</label>
+                <textarea id="direccion" name="direccion" rows="2"
+                  >{usuario.direccion || ""}</textarea
+                >
+              </div>
+
+              <div class="form-group full">
+                <label for="biografia">Biografía</label>
+                <textarea id="biografia" name="biografia" rows="3"
+                  >{usuario.biografia || ""}</textarea
+                >
+              </div>
+            </fieldset>
+
+            <hr />
+
+            <fieldset class="form-grid">
+              <legend>Redes Sociales</legend>
+
+              <div class="form-group">
+                <label for="twitter"
+                  ><i class="fab fa-twitter"></i> Twitter</label
+                >
+                <div class="input-prefix">
+                  <span>@</span>
+                  <input
+                    type="text"
+                    id="twitter"
+                    name="twitter"
+                    value={usuario.twitter || ""}
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="instagram"
+                  ><i class="fab fa-instagram"></i> Instagram</label
+                >
+                <div class="input-prefix">
+                  <span>@</span>
+                  <input
+                    type="text"
+                    id="instagram"
+                    name="instagram"
+                    value={usuario.instagram || ""}
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="linkedin"
+                  ><i class="fab fa-linkedin"></i> LinkedIn</label
+                >
+                <input
+                  type="text"
+                  id="linkedin"
+                  name="linkedin"
+                  value={usuario.linkedin || ""}
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="github"><i class="fab fa-github"></i> GitHub</label>
+                <input
+                  type="text"
+                  id="github"
+                  name="github"
+                  value={usuario.github || ""}
+                />
+              </div>
+            </fieldset>
+
+            <hr />
+
+            <fieldset class="form-grid">
+              <legend>Cambiar Contraseña</legend>
+
+              <div class="form-group">
+                <label for="current-password">Contraseña actual</label>
+                <input
+                  type="password"
+                  id="current-password"
+                  name="current-password"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="new-password">Nueva contraseña</label>
+                <input type="password" id="new-password" name="new-password" />
+              </div>
+
+              <div class="form-group">
+                <label for="confirm-password">Confirmar contraseña</label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="confirm-password"
+                />
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button type="reset" class="btn-secondary">Cancelar</button>
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-save"></i> Guardar Cambios
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+  </article>
+</main>
+
+<script src="../js/cambiarImgPerfil.js"></script>

@@ -1,35 +1,60 @@
 ---
 import LateralPerfil from "../components/lateralPerfil.astro";
+import EditarPerfil from "../components/editarPerfil.astro";
 import "../styles/perfil.css";
+
 import "../styles/general.css";
 
 import { parse } from "cookie";
+import { Pool } from "pg";
 
+// Conexión a la base de datos
+const pool = new Pool({
+  connectionString: import.meta.env.DATABASE_URL,
+});
+
+// Leer cookies
 const cookies = parse(Astro.request.headers.get("cookie") || "");
-const session = cookies.session;
+const sessionId = cookies.session;
 
-if (!session) {
-  throw Astro.redirect("/acceso");
+if (!sessionId) {
+  throw Astro.redirect("/acceso"); // Redirige si no hay sesión
+}
+
+// Obtener los datos del usuario desde la base de datos
+let user = null;
+try {
+  const result = await pool.query("SELECT * FROM usuarios WHERE id = $1", [
+    sessionId,
+  ]);
+  user = result.rows[0];
+} catch (error) {
+  console.error("Error al obtener los datos del usuario:", error);
 }
 ---
 
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-<body>
-  <LateralPerfil />
-  <header>Editar Perfil</header>
-  <main>
-    <section>
-      <h1>Bienvenido a tu perfil</h1>
-    </section>
-  </main>
-</body>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Mi Perfil</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <LateralPerfil />
+    <!-- HTML -->
+    <EditarPerfil />
+  </body>
+</html>

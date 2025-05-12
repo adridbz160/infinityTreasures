@@ -20,46 +20,92 @@ if (session) {
         acceder a multiples funciones.
       </p>
     </div>
-    <div class="wrapper">
-      <span class="bg-animate"></span>
-      <span class="bg-animate2"></span>
-      <div class="form-box login">
-        <h2 class="animation" style="--i:0; --j:20;">Acceso</h2>
+
+    <div class="container">
+      <div class="form-box active" id="loginForm">
         <form id="login-form" action="/api/login" method="POST">
-          <div class="input-box animation" style="--i:1; --j:21;">
-            <input name="email" type="email" autocomplete="off" required />
-            <label>Email</label>
-            <i class="fa-solid fa-envelope"></i>
-          </div>
-          <div class="input-box animation" style="--i:2; --j:22;">
-            <input
-              name="contraseña"
-              type="password"
-              autocomplete="off"
-              required
-            />
-            <label>Contraseña</label>
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <button type="submit" class="btn animation" style="--i:3; --j:23;"
-            >Iniciar sesión</button
-          >
-          <div class="logreg-link animation" style="--i:4; --j:24;">
-            <p>
-              ¿No tienes una cuenta? <a href="#" class="register-link"
-                >Registrate</a
-              >
-            </p>
-          </div>
+          <h3>Acceder</h3>
+          <input
+            name="email"
+            type="email"
+            autocomplete="off"
+            placeholder="Email"
+            required
+          />
+          <input
+            name="contraseña"
+            type="password"
+            autocomplete="off"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit">Iniciar sesión</button>
+          <p>
+            ¿No tienes una cuenta? <a href="#">Registrate</a>
+          </p>
         </form>
       </div>
-      <div class="info-text login">
-        <h2 class="animation" style="--i:0; --j:20;">¡Bienvenido!</h2>
-        <p class="animation" style="--i:1; --j:21;">
-          Inicia sesión con tu cuenta que creaste para acceder a todas las
-          funciones exclusivas para los usuarios.
-        </p>
+      <div class="form-box" id="registerForm">
+        <form
+          id="registro-form"
+          action="/api/register"
+          method="POST"
+          novalidate
+        >
+          <h3>Registro</h3>
+          <input
+            type="text"
+            name="nombre_usuario"
+            placeholder="Usuario"
+            required
+          />
+
+          <input type="text" name="nombre" placeholder="Nombre" required />
+
+          <input type="text" name="apellido" placeholder="Apellido" required />
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
+
+          <input
+            id="repeat-email"
+            type="email"
+            placeholder="Repite tu Email"
+            required
+          />
+
+          <input
+            id="password"
+            name="contraseña"
+            type="password"
+            placeholder="Contraseña"
+            required
+          />
+
+          <input
+            id="repeat-password"
+            type="password"
+            placeholder="Repite tu Contraseña"
+            required
+          />
+
+          <p id="email-error" class="error-msg"></p>
+          <p id="password-error" class="error-msg"></p>
+          <button type="submit">Registrarse</button>
+          <p>
+            ¿Ya tienes una cuenta? <a href="#">Inicia sesión</a>
+          </p>
+        </form>
       </div>
+    </div>
+
+    <!-- 
+
 
       <div class="form-box register">
         <h2 class="animation" style="--i:17; --j:0;">Registro</h2>
@@ -120,68 +166,8 @@ if (session) {
           </div>
         </form>
       </div>
-      <div class="info-text register">
-        <h2 class="animation" style="--i:17; --j:0;">¡Bienvenido!</h2>
-        <p class="animation" style="--i:18; --j:1;">
-          Desde aqui puedes crear una cuenta con la que podras acceder a
-          multiples funciones.
-        </p>
-      </div>
-    </div>
-
-    <!-- <h1>Acceso</h1>
-    <section>
-      <h2>Registro</h2>
-      <form id="registro-form" action="/api/register" method="POST" novalidate>
-        <input name="nombre_usuario" placeholder="Nombre de usuario" required />
-        <input name="nombre" placeholder="Nombre" required />
-        <input name="apellido" placeholder="Apellido" required />
-
-        <input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-        />
-        <input
-          id="repeat-email"
-          type="email"
-          placeholder="Repite el Email"
-          required
-        />
-        <p id="email-error" class="error-msg"></p>
-
-        <input
-          id="password"
-          name="contraseña"
-          type="password"
-          placeholder="Contraseña"
-          required
-        />
-        <input
-          id="repeat-password"
-          type="password"
-          placeholder="Repite la Contraseña"
-          required
-        />
-        <p id="password-error" class="error-msg"></p>
-
-        <button type="submit">Registrarse</button>
-      </form>
-
-      <h2>Login</h2>
-      <form id="login-form" action="/api/login" method="POST">
-        <input name="email" type="email" placeholder="Email" required />
-        <input
-          name="contraseña"
-          type="password"
-          placeholder="Contraseña"
-          required
-        />
-        <button type="submit">Iniciar sesión</button>
-      </form>
-    </section> -->
+    
+     -->
   </main>
   <script src="../js/intercambioFormularios.js"></script>
   <script src="../js/validacionRegister.js"></script>

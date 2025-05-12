@@ -4,8 +4,8 @@
 main {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   padding-top: 10em;
   min-height: 100vh;
 }

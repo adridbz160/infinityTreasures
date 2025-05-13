@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
   const email = formData.get("email");
   const telefono = formData.get("telefono");
   const fecha_nacimiento = formData.get("nacimiento");
-  const genero = formData.get("genero");
+  const genero = formData.get("genero") || "";
   const direccion = formData.get("direccion");
   const biografia = formData.get("biografia");
   const twitter = formData.get("twitter");

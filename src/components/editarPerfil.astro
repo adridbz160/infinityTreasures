@@ -81,7 +81,11 @@ if (!usuario) {
         <!-- Formulario de perfil -->
         <section class="form-section">
           <h2>Información Personal</h2>
-          <form method="POST" action="/api/actualizarPerfil">
+          <form
+            method="POST"
+            action="/api/actualizarPerfil"
+            enctype="multipart/form-data"
+          >
             <fieldset class="form-grid">
               <legend class="sr-only">Datos básicos</legend>
 
@@ -129,8 +133,8 @@ if (!usuario) {
                 <label for="nacimiento">Fecha de nacimiento</label>
                 <input
                   type="date"
-                  id="nacimiento"
-                  name="nacimiento"
+                  id="fecha_nacimiento"
+                  name="fecha_nacimiento"
                   value={usuario.fecha_nacimiento || ""}
                 />
               </div>

@@ -50,7 +50,7 @@ export async function post({ request }: { request: Request }) {
       github, sessionId
     ]);
 
-    return Response.redirect("/perfil", 303); // Redirige a perfil.astro
+    return Response.redirect("/perfil", 303);
   } catch (err) {
     console.error("Error al actualizar perfil:", err);
     return new Response("Error del servidor", { status: 500 });

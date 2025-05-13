@@ -42,7 +42,7 @@
 }
 
 #editarPerfil a.header-der div.imgUser img{
-    width: 100%;
+    width: fit-content;
     height: 100%;
 }
 

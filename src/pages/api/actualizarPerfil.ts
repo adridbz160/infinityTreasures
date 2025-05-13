@@ -28,7 +28,11 @@ export const POST: APIRoute = async ({ request }) => {
   const linkedin = formData.get("linkedin");
   const github = formData.get("github");
 
+  // Obtener el Base64 de la foto de perfil (si está presente)
+  const foto_perfil = formData.get("foto_perfil")?.toString() || null;
+
   try {
+    // Actualizar los datos del usuario en la base de datos
     await pool.query(
       `
       UPDATE usuarios SET
@@ -43,8 +47,9 @@ export const POST: APIRoute = async ({ request }) => {
         twitter = $9,
         instagram = $10,
         linkedin = $11,
-        github = $12
-      WHERE id = $13
+        github = $12,
+        foto_perfil = $13
+      WHERE id = $14
     `,
       [
         nombre,
@@ -59,6 +64,7 @@ export const POST: APIRoute = async ({ request }) => {
         instagram,
         linkedin,
         github,
+        foto_perfil, // Guardamos la foto en Base64
         sessionId,
       ]
     );
@@ -66,7 +72,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(null, {
       status: 303,
       headers: {
-        Location: "/perfil",
+        Location: "/perfil", // Redirigimos al perfil después de guardar
       },
     });
   } catch (err) {

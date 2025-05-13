@@ -24,13 +24,10 @@ if (session) {
 {
   usuario ? (
     <a href="/perfil" id="usuarioBoton">
-      <img
-        src={usuario.foto_perfil}
-        alt="Foto de perfil"
-        width="32"
-        height="32"
-        style="border-radius: 50%; margin-right: 0.5rem;"
-      />
+      <div class="imgUser">
+        <img src={usuario.foto_perfil} alt="Foto de perfil" />
+      </div>
+
       {usuario.nombre_usuario}
     </a>
   ) : (

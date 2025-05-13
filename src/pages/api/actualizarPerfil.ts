@@ -1,3 +1,4 @@
+import type { APIRoute } from "astro";
 import { parse } from "cookie";
 import { Pool } from "pg";
 
@@ -5,7 +6,7 @@ const pool = new Pool({
   connectionString: import.meta.env.DATABASE_URL,
 });
 
-export async function post({ request }: { request: Request }) {
+export const POST: APIRoute = async ({ request }) => {
   const cookies = parse(request.headers.get("cookie") || "");
   const sessionId = cookies.session;
 
@@ -28,7 +29,8 @@ export async function post({ request }: { request: Request }) {
   const github = formData.get("github");
 
   try {
-    await pool.query(`
+    await pool.query(
+      `
       UPDATE usuarios SET
         nombre = $1,
         apellido = $2,
@@ -43,16 +45,32 @@ export async function post({ request }: { request: Request }) {
         linkedin = $11,
         github = $12
       WHERE id = $13
-    `, [
-      nombre, apellido, email, telefono,
-      fecha_nacimiento, genero, direccion,
-      biografia, twitter, instagram, linkedin,
-      github, sessionId
-    ]);
+    `,
+      [
+        nombre,
+        apellido,
+        email,
+        telefono,
+        fecha_nacimiento,
+        genero,
+        direccion,
+        biografia,
+        twitter,
+        instagram,
+        linkedin,
+        github,
+        sessionId,
+      ]
+    );
 
-    return Response.redirect("/perfil", 303);
+    return new Response(null, {
+      status: 303,
+      headers: {
+        Location: "/perfil",
+      },
+    });
   } catch (err) {
     console.error("Error al actualizar perfil:", err);
     return new Response("Error del servidor", { status: 500 });
   }
-}
+};

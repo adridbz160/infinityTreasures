@@ -4,8 +4,21 @@ import "../styles/registroProducto.css";
 ---
 
 <Layout>
-  <main class="container">
+  <main id="formRegProduct">
     <section class="card" aria-labelledby="formTitle">
+      <header class="header">
+        <div class="header-content">
+          <h1 id="formTitle" class="header-title">
+            <i class="fas fa-box-open"></i> Registro de Producto
+          </h1>
+          <div class="header-badge" aria-label="Formulario seguro">
+            <i class="fas fa-lock"></i> Seguro
+          </div>
+        </div>
+        <p class="header-subtitle">
+          Complete todos los campos para registrar un nuevo producto
+        </p>
+      </header>
       <!-- Formulario -->
       <form id="productForm" class="form">
         <!-- Nombre -->
@@ -197,16 +210,6 @@ import "../styles/registroProducto.css";
         </div>
       </form>
     </section>
-
-    <!-- Modal -->
-    <dialog id="successModal" class="modal hidden" aria-modal="true">
-      <div class="modal-content">
-        <div class="modal-icon"><i class="fas fa-check"></i></div>
-        <h3>¡Producto registrado con éxito!</h3>
-        <p>El producto ha sido registrado correctamente en nuestro sistema.</p>
-        <button id="closeModalBtn" class="btn-submit">Aceptar</button>
-      </div>
-    </dialog>
   </main>
   <script src="../js/registroProducto.js"></script>
 </Layout>

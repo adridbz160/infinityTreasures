@@ -64,7 +64,7 @@ header#responsive #menu:hover{
     }
     
    header#responsive form>section{
-        width: 100%;
+        width: 60%;
         display: flex;
         padding: 0.4em 0;
         align-items: center;
@@ -133,7 +133,9 @@ header#responsive #menu:hover{
         
         
         
-        header#responsive nav.responsive ul li:hover:not(:last-of-type){
+        header#responsive nav.responsive ul li:hover:not(:nth-of-type(4)),
+        header#responsive nav.responsive ul li:hover:not(:last-of-type)
+        {
             background-color: #fff;
             cursor: pointer;
             
@@ -149,6 +151,7 @@ header#responsive #menu:hover{
              transition: color 0.7s;
              display: block;
         } 
+
         header#responsive nav.responsive ul li:hover:not(:last-of-type) a{
              color: #000;
          }

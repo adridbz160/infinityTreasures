@@ -59,18 +59,17 @@ header#responsive #menu:hover{
 }
     header#responsive form{
         width: 100%;
-        padding: 0 1em;
         
     }
     
    header#responsive form>section{
-        width: 60%;
+        width: 100%;
         display: flex;
         padding: 0.4em 0;
         align-items: center;
         background: #fff;
         transition: background 0.25s;
-        border-radius: 9999px; position: relative;    }
+        position: relative;    }
     
    header#responsive form>section:focus-within{
         outline: none;
@@ -130,7 +129,15 @@ header#responsive #menu:hover{
             transition: background 0.7s;
         }
         
+         header#responsive nav.responsive ul li:hover:not(:nth-of-type(4)){
+            padding: 0;
+         }
         
+
+        header#responsive nav.responsive ul li:hover:not(:nth-of-type(4)) #usuarioBoton{
+            border-radius: none;
+            box-shadow: none;
+        }
         
         
         header#responsive nav.responsive ul li:hover:not(:nth-of-type(4)),

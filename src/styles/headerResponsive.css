@@ -85,7 +85,7 @@ header#responsive #menu:hover{
         outline: none;
         border: none;
         background-color: transparent;
-       width: 100%;
+       width: 90%;
     }
     
    header#responsive form>section i{
@@ -98,6 +98,11 @@ header#responsive #menu:hover{
    header#responsive form>section>input::placeholder,
    header#responsive form>section>i{
         color: rgba(107, 114, 128,0.8);
+    }
+
+    header#responsive form>section>input:hover+i.fa-solid.fa-magnifying-glass,
+    header#responsive form>section>input:focus+i.fa-solid.fa-magnifying-glass{
+        display: none;
     }
        
         header#responsive nav{

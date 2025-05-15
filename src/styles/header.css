@@ -66,7 +66,7 @@ header#normal{
         outline: none;
         border: none;
         background-color: transparent;
-        
+        width: 80%;
     }
     
     header#normal form>section>i{
@@ -79,6 +79,12 @@ header#normal{
     header#normal form>section>input::placeholder,
     header#normal form>section>i{
         color: rgba(107, 114, 128,0.8);
+    }
+
+    header#normal form>section>input:focus+i.fa-solid.fa-magnifying-glass,
+    header#normal form>section>input:hover+i.fa-solid.fa-magnifying-glass
+    {
+        display: none;
     }
     
     header#normal nav>ul{

@@ -4,8 +4,8 @@
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   padding-top: 10em;
   min-height: 100vh;
 }
@@ -29,7 +29,6 @@ main * {
   color: #000000;
   text-align: center;
   margin-bottom: 4em;
-  width: 500px;
 }
 
 

@@ -4,7 +4,7 @@
 main#accesoForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding-top: 10em;
   min-height: 100vh;

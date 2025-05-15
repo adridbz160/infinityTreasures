@@ -85,7 +85,7 @@ header#responsive #menu:hover{
         outline: none;
         border: none;
         background-color: transparent;
-       
+       width: 100%;
     }
     
    header#responsive form>section i{
@@ -129,18 +129,18 @@ header#responsive #menu:hover{
             transition: background 0.7s;
         }
         
-         header#responsive nav.responsive ul li:hover:not(:nth-of-type(4)){
+         header#responsive nav.responsive ul li:nth-of-type(4){
             padding: 0;
-         }
-        
-
-        header#responsive nav.responsive ul li:hover:not(:nth-of-type(4)) #usuarioBoton{
-            border-radius: none;
+             border-radius: none;
             box-shadow: none;
-        }
+         }
+
+         header#responsive nav.responsive ul li #usuarioBoton{
+            border-radius: 0;
+         }
+
         
         
-        header#responsive nav.responsive ul li:hover:not(:nth-of-type(4)),
         header#responsive nav.responsive ul li:hover:not(:last-of-type)
         {
             background-color: #fff;

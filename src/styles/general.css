@@ -296,4 +296,18 @@ footer>section:first-of-type{
         padding-top: 120px!important;
       
     }
+
+    #formRegProduct .form-checkbox input, #formRegProduct .pegi-options label input{
+        width: 3dvw!important;
+        height: 3dvw!important;
+    }
+
+    #formRegProduct .form-checkbox{
+        gap: 1.6dvw!important;
+    }
+
+    #formRegProduct .pegi-options{
+        gap: 1.6dvw!important;
+    }
+
 }

@@ -110,6 +110,9 @@ main{
     header#responsive{
         display: none;
     }
+      #editarPerfil .profile-layout {
+    flex-direction: row;
+  }
 }
 
 /*Portatil*/
@@ -127,14 +130,14 @@ main{
         padding-top: 160px!important;
     }
 
-     .profile-layout {
+    #editarPerfil .profile-layout  {
     flex-direction: row;
   }
 }
 
 /*Tablets*/
 @media screen and (min-width: 768px) and (max-width: 1023px){
- .profile-layout {
+#editarPerfil .profile-layout  {
     flex-direction: column;
   }
      main#formRegProduct{

@@ -1,5 +1,5 @@
 /* CSS */
-#headerEditarPerfill{
+#headerEditarPerfil{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +10,7 @@
   font-family: "Poppins", serif;
 }
 
-#headerEditarPerfill section.header-izq{
+#headerEditarPerfil section.header-izq{
  display: flex;
   align-items: center;
 }
@@ -18,7 +18,7 @@
 
 
 
-#headerEditarPerfill>h1 {
+#headerEditarPerfil>h1 {
   font-size: 20px;
   font-weight: 600;
   color: #1f2937;
@@ -111,7 +111,7 @@ h1, h2, h3 {
   border: 4px solid #e0e7ff;
 }
 
-#headerEditarPerfill+main .profile-pic-upload .overlay {
+#headerEditarPerfil+main .profile-pic-upload .overlay {
   position: absolute;
   top: 0;
   left: 0;

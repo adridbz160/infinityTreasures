@@ -110,9 +110,6 @@ main{
     header#responsive{
         display: none;
     }
-      #editarPerfil .profile-layout {
-    flex-direction: row;
-  }
 }
 
 /*Portatil*/
@@ -130,15 +127,12 @@ main{
         padding-top: 160px!important;
     }
 
-    #editarPerfil .profile-layout  {
-    flex-direction: row;
-  }
 }
 
 /*Tablets*/
 @media screen and (min-width: 768px) and (max-width: 1023px){
 #editarPerfil .profile-layout  {
-    flex-direction: column;
+    flex-direction: row;
   }
      main#formRegProduct{
         align-items: flex-start!important;
@@ -319,4 +313,7 @@ footer>section:first-of-type{
         gap: 1.6dvw!important;
     }
 
+    #editarPerfil .profile-layout  {
+    flex-direction: column;
+  }
 }

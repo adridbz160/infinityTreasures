@@ -1,5 +1,5 @@
 /* CSS */
-#headerEditarPerfi {
+#headerEditarPerfill{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +10,7 @@
   font-family: "Poppins", serif;
 }
 
-#headerEditarPerfi section.header-izq{
+#headerEditarPerfill section.header-izq{
  display: flex;
   align-items: center;
 }
@@ -18,13 +18,13 @@
 
 
 
-#headerEditarPerfi>h1 {
+#headerEditarPerfill>h1 {
   font-size: 20px;
   font-weight: 600;
   color: #1f2937;
 }
 
-#headerEditarPerfi a.header-der {
+#headerEditarPerfil a.header-der {
   display: flex;
   align-items: center;
   background: none;
@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-#headerEditarPerfi a.header-der div.imgUser {
+#headerEditarPerfil a.header-der div.imgUser {
     height: 32px;
     width: 32px;
     overflow: hidden;
@@ -41,12 +41,12 @@
     border-radius: 999px;
 }
 
-#headerEditarPerfi a.header-der div.imgUser img{
+#headerEditarPerfil a.header-der div.imgUser img{
     width: fit-content;
     height: 100%;
 }
 
-#headerEditarPerfi a.header-der span {
+#headerEditarPerfil a.header-der span {
   margin-left: 8px;
   font-size: 14px;
   font-weight: 500;
@@ -58,13 +58,13 @@
 /* Cuerpo de la pagina */
 
 /* Contenedor principal */
-#headerEditarPerfi+main.container {
+#headerEditarPerfil+main.container {
   max-width: 1000px;
   margin: 0 auto;
 }
 
 /* Tarjeta del perfil */
-#headerEditarPerfi+main .profile-card {
+#headerEditarPerfil+main .profile-card {
   background: #fff;
   border-radius: 1rem;
   box-shadow: 0 0 20px rgba(0,0,0,0.05);
@@ -79,7 +79,7 @@ h1, h2, h3 {
 }
 
 /* Layout principal */
-#headerEditarPerfi+main .profile-layout {
+#headerEditarPerfil+main .profile-layout {
   display: flex;
   flex-direction: row;
   gap: 2rem;
@@ -88,7 +88,7 @@ h1, h2, h3 {
 
 
 /* Avatar */
-#headerEditarPerfi+main .avatar-section {
+#headerEditarPerfil+main .avatar-section {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -96,14 +96,14 @@ h1, h2, h3 {
   text-align: center;
 }
 
-#headerEditarPerfi+main .profile-pic-upload {
+#headerEditarPerfil+main .profile-pic-upload {
   position: relative;
   width: 130px;
   height: 130px;
   margin-bottom: 1rem;
 }
 
-#headerEditarPerfi+main .profile-pic-upload img {
+#headerEditarPerfil+main .profile-pic-upload img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -111,7 +111,7 @@ h1, h2, h3 {
   border: 4px solid #e0e7ff;
 }
 
-#headerEditarPerfi+main .profile-pic-upload .overlay {
+#headerEditarPerfill+main .profile-pic-upload .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -127,11 +127,11 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
-#headerEditarPerfi+main .profile-pic-upload:hover .overlay {
+#headerEditarPerfil+main .profile-pic-upload:hover .overlay {
   opacity: 1;
 }
 
-#headerEditarPerfi+main .profile-pic-upload i {
+#headerEditarPerfil+main .profile-pic-upload i {
   color: white;
   font-size: 1.5rem;
 }

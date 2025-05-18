@@ -132,6 +132,11 @@ main{
 /*Tablets*/
 @media screen and (min-width: 768px) and (max-width: 1023px){
 
+    
+    #editarPerfil+main .profile-layout  {
+    flex-direction: column!important;
+  }
+
      main#formRegProduct{
         align-items: flex-start!important;
         padding-top: 140px!important;
@@ -311,7 +316,4 @@ footer>section:first-of-type{
         gap: 1.6dvw!important;
     }
 
-    #editarPerfil+main .profile-layout  {
-    flex-direction: column!important;
-  }
 }

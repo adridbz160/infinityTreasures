@@ -216,4 +216,25 @@ footer>section>p{
 #formRegProduct .form{
     padding: 1dvw!important;
 }
+
+footer>section:first-of-type{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+footer>section:first-of-type p{
+    width: auto;
+    font-size: 1.6dvw;
+}
+
+footer>section>div:not(:last-of-type){
+    margin-bottom: 2em;
+}
+
+footer>section>p{
+    text-align: center;
+    font-size: 1.6dvw;
+}
 }

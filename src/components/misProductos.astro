@@ -43,82 +43,67 @@ if (!usuario) {
   </a>
 </header>
 <main>
-  <html lang="es">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Panel de Productos</title>
-      <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-      <main>
-        <header>
-          <h1>Productos</h1>
-          <div>
-            <button>Nuevo</button>
-            <div>
-              <img
-                src="https://via.placeholder.com/32"
-                alt="Avatar de usuario"
-              />
-              <span>Usuario</span>
-            </div>
-          </div>
-        </header>
+  <header>
+    <h1>Productos</h1>
+    <div>
+      <button>Nuevo</button>
+      <div>
+        <img src="https://via.placeholder.com/32" alt="Avatar de usuario" />
+        <span>Usuario</span>
+      </div>
+    </div>
+  </header>
 
-        <section aria-labelledby="filtros">
-          <h2 id="filtros" class="visually-hidden">Filtros</h2>
-          <form>
-            <label for="categoria">Categoría:</label>
-            <select id="categoria" name="categoria">
-              <option value="">Todas</option>
-              <option value="camisetas">Camisetas</option>
-              <option value="pantalones">Pantalones</option>
-              <option value="zapatos">Zapatos</option>
-            </select>
+  <section aria-labelledby="filtros">
+    <h2 id="filtros" class="visually-hidden">Filtros</h2>
+    <form>
+      <label for="categoria">Categoría:</label>
+      <select id="categoria" name="categoria">
+        <option value="">Todas</option>
+        <option value="camisetas">Camisetas</option>
+        <option value="pantalones">Pantalones</option>
+        <option value="zapatos">Zapatos</option>
+      </select>
 
-            <label for="buscar">Buscar:</label>
-            <input
-              type="text"
-              id="buscar"
-              name="buscar"
-              placeholder="Buscar producto"
-            />
+      <label for="buscar">Buscar:</label>
+      <input
+        type="text"
+        id="buscar"
+        name="buscar"
+        placeholder="Buscar producto"
+      />
 
-            <button type="submit">Filtrar</button>
-          </form>
-        </section>
+      <button type="submit">Filtrar</button>
+    </form>
+  </section>
 
-        <section aria-labelledby="lista-productos">
-          <h2 id="lista-productos">Lista de productos</h2>
-          <div>
-            <article>
-              <img src="https://via.placeholder.com/300x200" alt="Producto 1" />
-              <div>
-                <h3>Producto 1</h3>
-                <p>Descripción del producto 1</p>
-                <span>$19.99</span>
-              </div>
-            </article>
-            <article>
-              <img src="https://via.placeholder.com/300x200" alt="Producto 2" />
-              <div>
-                <h3>Producto 2</h3>
-                <p>Descripción del producto 2</p>
-                <span>$29.99</span>
-              </div>
-            </article>
-            <article>
-              <img src="https://via.placeholder.com/300x200" alt="Producto 3" />
-              <div>
-                <h3>Producto 3</h3>
-                <p>Descripción del producto 3</p>
-                <span>$39.99</span>
-              </div>
-            </article>
-          </div>
-        </section>
-      </main>
-    </body>
-  </html>
+  <section aria-labelledby="lista-productos">
+    <h2 id="lista-productos">Lista de productos</h2>
+    <div>
+      <article>
+        <img src="https://via.placeholder.com/300x200" alt="Producto 1" />
+        <div>
+          <h3>Producto 1</h3>
+          <p>Descripción del producto 1</p>
+          <span>$19.99</span>
+        </div>
+      </article>
+      <article>
+        <img src="https://via.placeholder.com/300x200" alt="Producto 2" />
+        <div>
+          <h3>Producto 2</h3>
+          <p>Descripción del producto 2</p>
+          <span>$29.99</span>
+        </div>
+      </article>
+      <article>
+        <img src="https://via.placeholder.com/300x200" alt="Producto 3" />
+        <div>
+          <h3>Producto 3</h3>
+          <p>Descripción del producto 3</p>
+          <span>$39.99</span>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>

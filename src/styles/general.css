@@ -114,7 +114,7 @@ main{
 
 /*Portatil*/
 
-@media screen and (min-width: 1024px) and (max-width: 1439px){
+@media screen and (max-width: 1439px){
      header#normal{
         display: flex;
     }
@@ -130,7 +130,7 @@ main{
 }
 
 /*Tablets*/
-@media screen and (min-width: 768px) and (max-width: 1023px){
+@media screen and (max-width: 1023px){
 
     
     #editarPerfil+main .profile-layout  {
@@ -316,4 +316,9 @@ footer>section:first-of-type{
         gap: 1.6dvw!important;
     }
 
+
+  #editarPerfil+main .form-grid{
+    display: flex!important;
+    flex-direction: column!important;
+  }
 }

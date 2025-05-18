@@ -42,68 +42,117 @@ if (!usuario) {
     <span>{usuario.nombre_usuario}</span>
   </a>
 </header>
-<main>
-  <header>
-    <h1>Productos</h1>
-    <div>
-      <button>Nuevo</button>
-      <div>
-        <img src="https://via.placeholder.com/32" alt="Avatar de usuario" />
-        <span>Usuario</span>
+<main id="container">
+  <!-- Filtros y búsqueda -->
+  <section class="filters-box" aria-label="Filtros de productos">
+    <div class="filters-row">
+      <div class="search-container">
+        <div class="search-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Buscar productos..."
+          aria-label="Buscar productos"
+        />
+      </div>
+      <div class="filters-selects">
+        <label>
+          <span class="sr-only">Filtrar por categoría</span>
+          <select class="select-filter">
+            <option>Todas las categorías</option>
+            <option>Electrónica</option>
+            <option>Ropa</option>
+            <option>Hogar</option>
+            <option>Deportes</option>
+          </select>
+        </label>
+        <label>
+          <span class="sr-only">Ordenar productos</span>
+          <select class="select-filter">
+            <option>Ordenar por</option>
+            <option>Más recientes</option>
+            <option>Precio: menor a mayor</option>
+            <option>Precio: mayor a menor</option>
+            <option>Mejor valorados</option>
+          </select>
+        </label>
       </div>
     </div>
-  </header>
-
-  <section aria-labelledby="filtros">
-    <h2 id="filtros" class="visually-hidden">Filtros</h2>
-    <form>
-      <label for="categoria">Categoría:</label>
-      <select id="categoria" name="categoria">
-        <option value="">Todas</option>
-        <option value="camisetas">Camisetas</option>
-        <option value="pantalones">Pantalones</option>
-        <option value="zapatos">Zapatos</option>
-      </select>
-
-      <label for="buscar">Buscar:</label>
-      <input
-        type="text"
-        id="buscar"
-        name="buscar"
-        placeholder="Buscar producto"
-      />
-
-      <button type="submit">Filtrar</button>
-    </form>
   </section>
 
-  <section aria-labelledby="lista-productos">
-    <h2 id="lista-productos">Lista de productos</h2>
-    <div>
-      <article>
-        <img src="https://via.placeholder.com/300x200" alt="Producto 1" />
-        <div>
-          <h3>Producto 1</h3>
-          <p>Descripción del producto 1</p>
-          <span>$19.99</span>
-        </div>
-      </article>
-      <article>
-        <img src="https://via.placeholder.com/300x200" alt="Producto 2" />
-        <div>
-          <h3>Producto 2</h3>
-          <p>Descripción del producto 2</p>
-          <span>$29.99</span>
-        </div>
-      </article>
-      <article>
-        <img src="https://via.placeholder.com/300x200" alt="Producto 3" />
-        <div>
-          <h3>Producto 3</h3>
-          <p>Descripción del producto 3</p>
-          <span>$39.99</span>
-        </div>
-      </article>
+  <!-- Lista de productos -->
+  <section class="product-grid" aria-label="Listado de productos">
+    <!-- Tarjeta de producto -->
+    <article class="product-card">
+      <figure class="product-image-container">
+        <img
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?..."
+          alt="Reloj inteligente"
+          class="product-image"
+        />
+        <figcaption class="badge available">Disponible</figcaption>
+      </figure>
+      <div class="product-details">
+        <header class="product-header">
+          <div>
+            <h3 class="product-title">Reloj Inteligente Pro</h3>
+            <p class="product-category">Electrónica</p>
+          </div>
+          <span class="product-price">$199.99</span>
+        </header>
+        <p class="product-description">
+          Reloj inteligente con monitor de frecuencia cardíaca, GPS integrado y
+          resistencia al agua hasta 50 metros.
+        </p>
+        <footer class="product-footer">
+          <div class="product-rating" aria-label="Valoración del producto">
+            <i class="fas fa-star"></i>
+            <span>4.8</span>
+            <span class="separator">•</span>
+            <span>24 ventas</span>
+          </div>
+          <div class="product-actions">
+            <button class="edit-btn" aria-label="Editar producto"
+              ><i class="fas fa-edit"></i></button
+            >
+            <button class="delete-btn" aria-label="Eliminar producto"
+              ><i class="fas fa-trash"></i></button
+            >
+          </div>
+        </footer>
+      </div>
+    </article>
+    <!-- Repite los demás artículos aquí -->
+  </section>
+
+  <!-- Agregar nuevo producto -->
+  <section class="add-product-card" aria-label="Agregar nuevo producto">
+    <div class="add-product-content">
+      <div class="add-product-icon">
+        <i class="fas fa-plus"></i>
+      </div>
+      <h3>Agregar nuevo producto</h3>
+      <p>Comienza a vender algo nuevo</p>
     </div>
   </section>
+
+  <!-- Paginación -->
+  <footer class="pagination-container" aria-label="Paginación de productos">
+    <div class="pagination-info">
+      Mostrando <span>1</span> a <span>6</span> de <span>12</span> resultados
+    </div>
+    <nav class="pagination" aria-label="Páginas">
+      <a href="#" class="pagination-btn" aria-label="Página anterior">
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      <a href="#" class="pagination-page current" aria-current="page">1</a>
+      <a href="#" class="pagination-page">2</a>
+      <a href="#" class="pagination-page">3</a>
+      <a href="#" class="pagination-btn" aria-label="Página siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </a>
+    </nav>
+  </footer>
 </main>

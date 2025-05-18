@@ -1,6 +1,9 @@
 ---
 import LateralPerfil from "../components/lateralPerfil.astro";
 import EditarPerfil from "../components/editarPerfil.astro";
+import MisProductos from "../components/misProductos.astro";
+import MisCalificaciones from "../components/misCalificaciones.astro";
+import MisFavoritos from "../components/misFavoritos.astro";
 import "../styles/perfil.css";
 
 import "../styles/general.css";
@@ -55,6 +58,19 @@ try {
   <body>
     <LateralPerfil />
     <!-- HTML -->
-    <EditarPerfil />
+    <div id="editarPerfil" class="seccion visible">
+      <EditarPerfil />
+    </div>
+    <div id="misProductos" class="seccion hidden">
+      <MisProductos />
+    </div>
+    <div id="misCalificaciones" class="seccion hidden">
+      <MisCalificaciones />
+    </div>
+    <div id="misFavoritos" class="seccion hidden">
+      <MisFavoritos />
+    </div>
+
+    <script src="../js/intercambioPaginasPerfil.js"></script>
   </body>
 </html>

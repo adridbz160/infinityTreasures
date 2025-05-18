@@ -226,7 +226,7 @@ footer>section:first-of-type{
 
 footer>section:first-of-type p{
     width: auto;
-    font-size: 3dvw!important;
+    font-size: 2dvw!important;
 }
 
 footer>section>div:not(:last-of-type){
@@ -235,15 +235,23 @@ footer>section>div:not(:last-of-type){
 
 footer>section>p{
     text-align: center;
-    font-size: 3dvw!important;
+    font-size: 2dvw!important;
 }
 
 footer>section:first-of-type h4, footer>section:first-of-type ul{
-    font-size: 4dvw!important;
+    font-size: 3dvw!important;
 }
 
 footer>section:first-of-type ul>li{
-    font-size: 3dvw!important;
+    font-size: 2dvw!important;
     
 }
+
+footer>section:first-of-type{
+    padding: 1em 1dvw;
+}
+
+    footer>section>div:not(:last-of-type){
+        margin-bottom: 2.4dvw!important;
+    }
 }

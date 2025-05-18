@@ -114,7 +114,7 @@ main{
 
 /*Portatil*/
 
-@media only screen and (min-width: 1024px) and (max-width: 1439px){
+@media screen and (min-width: 1024px) and (max-width: 1439px){
      header#normal{
         display: flex;
     }
@@ -122,10 +122,20 @@ main{
         display: none;
     }
     
+     main#formRegProduct{
+        align-items: flex-start!important;
+        padding-top: 160px!important;
+    }
 }
 
 /*Tablets*/
-@media only screen and (min-width: 768px) and (max-width: 1023px){
+@media screen and (min-width: 768px) and (max-width: 1023px){
+
+     main#formRegProduct{
+        align-items: flex-start!important;
+        padding-top: 140px!important;
+    }
+
       header#normal{
         display: none;
     }
@@ -160,6 +170,7 @@ footer>section>p{
 
 #formRegProduct .card {
       width: 80%!important;
+      margin-bottom: 10dvw!important;
 }
 
 #formRegProduct .header-title {
@@ -178,11 +189,12 @@ footer>section>p{
 }
 
 /*Smartphone*/
-@media only screen and (max-width: 767px){
+@media screen and (max-width: 767px){
 
 
 #formRegProduct .card {
       width: 80%!important;
+      margin-bottom: 10dvw!important;
 }
 
 #formRegProduct .header-title {
@@ -191,6 +203,21 @@ footer>section>p{
 #formRegProduct .header-badge, #formRegProduct .header-subtitle, #formRegProduct .form-hint, #formRegProduct .remove-image-btn, #formRegProduct .form-group, #formRegProduct .url-input span, #formRegProduct .form-checkbox label, #formRegProduct .btn-submit, #formRegProduct .btn-reset {
   font-size: 1.6dvw!important;
 }
+ #formRegProduct .btn-submit, #formRegProduct .btn-reset {
+  padding: 1.2dvw 1dvw!important;
+}
+
+#formRegProduct .form-buttons{
+    margin: 0 2dvw 1dvw 0!important;
+    gap: 0!important;
+
+}
+
+#formRegProduct .btn-submit{
+    margin-left: 1dvw;
+}
+
+
 
 #formRegProduct input, #formRegProduct textarea, #formRegProduct select {
     padding: .5rem .75rem;
@@ -215,6 +242,15 @@ footer>section>p{
 
 #formRegProduct .form{
     padding: 1dvw!important;
+    gap: 1.4dvw!important;
+}
+
+#formRegProduct .form-group{
+    padding: 2dvw 1dvw;
+}
+
+#formRegProduct .image-section{
+   gap: 1.4dvw!important;
 }
 
 footer>section:first-of-type{
@@ -253,5 +289,11 @@ footer>section:first-of-type{
 
     footer>section>div:not(:last-of-type){
         margin-bottom: 2.4dvw!important;
+    }
+
+    main#formRegProduct{
+        align-items: flex-start!important;
+        padding-top: 120px!important;
+      
     }
 }

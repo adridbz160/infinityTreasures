@@ -1,0 +1,45 @@
+---
+import "../styles/misFavoritos.css";
+
+import { parse } from "cookie";
+import { Pool } from "pg";
+
+// Conexión a la base de datos
+const pool = new Pool({
+  connectionString: import.meta.env.DATABASE_URL,
+});
+
+// Leer cookies para obtener la sesión
+const cookies = parse(Astro.request.headers.get("cookie") || "");
+const sessionId = cookies.session;
+
+let usuario = null;
+if (sessionId) {
+  // Consultar la base de datos para obtener los datos del usuario
+  const res = await pool.query("SELECT * FROM usuarios WHERE id = $1", [
+    sessionId,
+  ]);
+  usuario = res.rows[0];
+}
+
+if (!usuario) {
+  throw Astro.redirect("/acceso"); // Redirigir si no se encuentra el usuario
+}
+---
+
+<header id="headerFavoritos">
+  <section class="header-izq">
+    <h1>Editar Perfil</h1>
+  </section>
+  <a href="#" class="header-der">
+    <div class="imgUser">
+      <!-- Mostrar la imagen de perfil del usuario -->
+      <img
+        src={usuario.foto_perfil || "/img/default_profile_pic.webp"}
+        alt="Foto de perfil"
+      />
+    </div>
+    <span>{usuario.nombre_usuario}</span>
+  </a>
+</header>
+<main></main>

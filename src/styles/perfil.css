@@ -7,3 +7,9 @@ body{
     margin-left: 12.5em;
 }
 
+     .hidden {
+        display: none;
+      }
+      .visible {
+        display: block;
+      }

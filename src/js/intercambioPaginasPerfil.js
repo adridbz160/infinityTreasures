@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("#lateralPerfil a[href^='/']").forEach((link) => {
     link.addEventListener("click", (e) => {
+      // Ignorar enlaces que están en el footer
+      if (link.closest("footer")) return;
+
       e.preventDefault();
 
       const idSeccion = link.getAttribute("href").replace("/", "");

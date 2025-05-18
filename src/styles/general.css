@@ -133,7 +133,7 @@ main{
 @media screen and (max-width: 1023px){
 
     
-    #editarPerfil+main .profile-layout  {
+    #headerEditarPerfil+main .profile-layout  {
     flex-direction: column!important;
   }
 
@@ -317,7 +317,7 @@ footer>section:first-of-type{
     }
 
 
-  #editarPerfil+main .form-grid{
+  #headerEditarPerfil+main .form-grid{
     display: flex!important;
     flex-direction: column!important;
   }

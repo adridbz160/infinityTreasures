@@ -7,9 +7,10 @@ body{
     margin-left: 12.5em;
 }
 
-     .hidden {
-        display: none;
-      }
-      .visible {
-        display: block;
-      }
+.seccion {
+  display: none;
+}
+
+.seccion.active {
+  display: block;
+}

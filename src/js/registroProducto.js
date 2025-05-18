@@ -9,13 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const successModal = document.getElementById('successModal');
   const closeModalBtn = document.getElementById('closeModalBtn');
 
-  // Actualizar contador de caracteres
-  description.addEventListener('input', () => {
-    const currentLength = description.value.length;
-    charCount.textContent = `${currentLength}/50`;
-    charCount.classList.toggle('text-red-500', currentLength < 50);
-    charCount.classList.toggle('text-gray-500', currentLength >= 50);
-  });
 
   // Vista previa de la imagen
   imageInput.addEventListener('change', function () {

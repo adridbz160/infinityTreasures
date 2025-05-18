@@ -68,6 +68,11 @@ main#formRegProduct {
   border-radius: 0.375rem;
   font-size: 0.875rem;
 }
+
+#formRegProduct textarea{
+  resize: none;
+}
+
 #formRegProduct input:focus, #formRegProduct textarea:focus, #formRegProduct select:focus {
   outline: none;
   border-color: #3b82f6;

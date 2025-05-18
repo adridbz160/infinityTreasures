@@ -100,18 +100,33 @@ main{
       }
 
     
-@media screen and (min-width:1200px){
-    header#normal{
+
+
+/*Sobremesa*/
+@media only screen and (min-width: 1440px){
+     header#normal{
         display: flex;
     }
     header#responsive{
         display: none;
     }
-
 }
 
-@media screen and (max-width:1200px){
-    header#normal{
+/*Portatil*/
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px){
+     header#normal{
+        display: flex;
+    }
+    header#responsive{
+        display: none;
+    }
+    
+}
+
+/*Tablets*/
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+      header#normal{
         display: none;
     }
     header#responsive{
@@ -143,6 +158,62 @@ footer>section>p{
     text-align: center;
 }
 
+#formRegProduct .card {
+      width: 80%!important;
 }
 
+#formRegProduct .header-title {
+  font-size: 1.2rem!important;
+}
+#formRegProduct .header-badge {
+  font-size: 0.8rem!important;
+}
+#formRegProduct .header-subtitle {
+ font-size: 0.8rem!important;
+}
 
+#formRegProduct .pegi-options label{
+    font-size: 0.8rem!important
+}
+}
+
+/*Smartphone*/
+@media only screen and (max-width: 767px){
+
+
+#formRegProduct .card {
+      width: 80%!important;
+}
+
+#formRegProduct .header-title {
+  font-size: 2.6dvw!important;
+}
+#formRegProduct .header-badge, #formRegProduct .header-subtitle, #formRegProduct .form-hint, #formRegProduct .remove-image-btn, #formRegProduct .form-group, #formRegProduct .url-input span, #formRegProduct .form-checkbox label, #formRegProduct .btn-submit, #formRegProduct .btn-reset {
+  font-size: 1.6dvw!important;
+}
+
+#formRegProduct input, #formRegProduct textarea, #formRegProduct select {
+    padding: .5rem .75rem;
+    font-size: 1.6dvw!important;
+}
+
+#formRegProduct .pegi-options label{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#formRegProduct .pegi-options label input{
+    margin-right: 1dvw;
+}
+
+#formRegProduct .form-grid{
+    display: block!important;
+}
+
+#formRegProduct .form{
+    padding: 1dvw!important;
+}
+}

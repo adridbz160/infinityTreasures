@@ -81,7 +81,7 @@ h1, h2, h3 {
 /* Layout principal */
 .profile-layout {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2rem;
 }
 

@@ -131,9 +131,7 @@ main{
 
 /*Tablets*/
 @media screen and (min-width: 768px) and (max-width: 1023px){
-#editarPerfil .profile-layout  {
-    flex-direction: row!important;
-  }
+
      main#formRegProduct{
         align-items: flex-start!important;
         padding-top: 140px!important;

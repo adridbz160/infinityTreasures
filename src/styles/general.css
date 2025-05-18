@@ -311,7 +311,7 @@ footer>section:first-of-type{
         gap: 1.6dvw!important;
     }
 
-    #editarPerfil .profile-layout  {
+    #editarPerfil+main .profile-layout  {
     flex-direction: column!important;
   }
 }

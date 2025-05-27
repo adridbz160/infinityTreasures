@@ -1,7 +1,7 @@
-# Infinity Treasures Vault
+## Infinity Treasures Vault
 
-> ¡Bienvenido! Este proyecto consta de una pagina web que se enfoca a poder subir y ver los productos favoritos de cualquier usuario que sea participe de la web.
-> Este proyecto cuenta con tecnologias como:
+¡Bienvenido! Este proyecto consta de una pagina web que se enfoca a poder subir y ver los productos favoritos de cualquier usuario que sea participe de la web.
+Este proyecto cuenta con tecnologias como:
   - HTML
   - CSS
   - JavaScript

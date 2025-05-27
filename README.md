@@ -8,5 +8,5 @@ Este proyecto cuenta con tecnologias como:
   - Astro
   - Base de Datos
   - JWT
-                 |
+
 ¡Si quieres aportar tu granito de arena, o comentarme/sugerirme algo que mejorar y/o agregar, se agradece el feedback!

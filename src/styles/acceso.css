@@ -39,7 +39,7 @@ main#accesoForm * {
   pointer-events: none;
 }
 
-#accesoForm .popup {
+.popup {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -56,24 +56,24 @@ main#accesoForm * {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-#accesoForm .popup.hidden {
+ .popup.hidden {
   opacity: 0;
   transform: translateY(-20px);
   pointer-events: none;
   /* Desactiva la interacción mientras está oculto */
 }
 
-#accesoForm .popup .icon {
+ .popup .icon {
   font-size: 1.5em;
 }
 
-#accesoForm .popup.success {
+ .popup.success {
   background-color: #d4edda;
   border-color: #28a745;
   color: #155724;
 }
 
-#accesoForm .popup.error {
+ .popup.error {
   background-color: #f8d7da;
   border-color: #dc3545;
   color: #721c24;

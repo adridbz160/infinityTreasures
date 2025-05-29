@@ -345,7 +345,7 @@ footer>section:first-of-type{
         width: 20%;
     }
 
-    #lateralPerfil button{
+    #editarPerfil button.btn-secondary, #editarPerfil .btn-primary{
         font-size: 0.6rem;
     padding: .6rem .6rem;
     }

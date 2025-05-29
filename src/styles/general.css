@@ -329,9 +329,9 @@ footer>section:first-of-type{
     margin-left: 7.5rem!important;
 }
 
-#lateralPerfil h1, #lateralPerfil h2, #lateralPerfil h3{
+#lateralPerfil h1, #lateralPerfil h2, #lateralPerfil h3, #headerEditarPerfil h1{
     font-size: 1rem;
-    margin-bottom: 0px;
+    margin: 0px;
 }
 
     #lateralPerfil{

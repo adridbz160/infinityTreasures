@@ -322,3 +322,10 @@ footer>section:first-of-type{
     flex-direction: column!important;
   }
 }
+
+/*Phone*/
+@media screen and (max-width: 500px){
+    #lateralPerfil>header>i, #lateralPerfil ul>li>a>span{
+        display: none
+    }
+}

@@ -352,7 +352,8 @@ footer>section:first-of-type{
 
     #editarPerfil .profile-card h1,
     #editarPerfil .profile-card h2,
-    #editarPerfil .profile-card h3{
+    #editarPerfil .profile-card h3
+    #editarPerfil .form-grid legend{
         font-size: 1rem;
         margin-bottom: 1rem;
     }

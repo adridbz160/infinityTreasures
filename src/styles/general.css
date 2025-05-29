@@ -349,4 +349,10 @@ footer>section:first-of-type{
         font-size: 0.6rem;
     padding: .6rem .6rem;
     }
+
+    #editarPerfil .profile-card h1,
+    #editarPerfil .profile-card h2,
+    #editarPerfil .profile-card h3{
+        font-size: 1rem;
+    }
 }
